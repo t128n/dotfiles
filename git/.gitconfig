@@ -1,3 +1,5 @@
 [user]
 	name = Torben Haack
-	email = t128n@ivp4.8shield.net
+	email = t128n@ipv4.8shield.net
+[url "git@github.com:"]
+	insteadOf = https://github.com/
