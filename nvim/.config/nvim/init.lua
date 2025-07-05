@@ -9,7 +9,7 @@ vim.o.undodir = vim.fn.stdpath('state') .. '/undo'
 
 -- UI bits
 vim.o.signcolumn  = 'yes'     -- avoid text shifting when gitsigns etc appear
-vim.o.colorcolumn = '80'      -- guide at 80 chars
+vim.o.colorcolumn = '120'      -- guide at 80 chars
 vim.o.completeopt = 'menuone,noselect'  -- better completion menu
 
 vim.api.nvim_create_autocmd('TextYankPost', {
