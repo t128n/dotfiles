@@ -1,5 +1,10 @@
 [user]
 	name = Torben Haack
 	email = t128n@ipv4.8shield.net
+	signingkey = /Users/torben/.ssh/id_ed25519.pub
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
