@@ -1,0 +1,28 @@
+{
+    "recommendations": [
+        // essentials
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "usernamehw.errorlens",
+        "EditorConfig.EditorConfig",
+        "naumovs.color-highlight",
+        "aaron-bond.better-comments",
+        "streetsidesoftware.code-spell-checker",
+        // language specific
+        /// web development
+        "biomejs.biome",
+        "yoavbls.pretty-ts-errors",
+        "astro-build.astro-vscode",
+        /// python
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "njpwerner.autodocstring",
+        "ms-python.vscode-pylance",
+        /// powershell
+        "ms-vscode.powershell",
+        // themes & icons
+        "antfu.icons-carbon",
+        "GitHub.github-vscode-theme",
+        "Catppuccin.catppuccin-vsc-icons"
+    ]
+}
