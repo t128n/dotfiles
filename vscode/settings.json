@@ -203,5 +203,7 @@
     "terminal.integrated.showExitAlert": false,
     // Keyboard nuances in terminal (keeps chords/mnemonics from stealing focus)
     "terminal.integrated.allowChords": false,
-    "terminal.integrated.allowMnemonics": false
+    "terminal.integrated.allowMnemonics": false,
+    // Git
+    "git.openRepositoryInParentFolders": "always"
 }
