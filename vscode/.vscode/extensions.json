@@ -1,28 +1,33 @@
 {
     "recommendations": [
-        // essentials
+        // [ BASE ]
+        "littensy.charmed-icons", // file icon theme
+        "miguelsolorio.min-theme", // color theme
+        "miguelsolorio.fluent-icons", // product icon theme
+        //^ depends on mikestead.dotenv
+        "usernamehw.errorlens", // better error highlighting
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker", // spell checker
+        "aaron-bond.better-comments",
         "EditorConfig.EditorConfig",
         "naumovs.color-highlight",
-        "aaron-bond.better-comments",
-        "streetsidesoftware.code-spell-checker",
-        // language specific
-        /// web development
+        // [ LANGUAGES ]
+        "mikestead.dotenv", // .env
+        "ms-python.python", // python
+        "astro-build.astro-vscode", // astro
+        "ms-vscode.PowerShell", // powershell
+        "redhat.vscode-yaml", // yaml
+        "redhat.vscode-xml", // xml
+        "tamasfe.even-better-toml", // toml
+        // [ LANGUAGE SPECIFIC ]
+        //~ web dev
         "biomejs.biome",
         "yoavbls.pretty-ts-errors",
-        "astro-build.astro-vscode",
-        /// python
-        "ms-python.python",
+        "bradlc.vscode-tailwindcss",
+        //~ python
         "charliermarsh.ruff",
-        "njpwerner.autodocstring",
         "ms-python.vscode-pylance",
-        /// powershell
-        "ms-vscode.powershell",
-        // themes & icons
-        "antfu.icons-carbon",
-        "GitHub.github-vscode-theme",
-        "Catppuccin.catppuccin-vsc-icons"
+        "njpwerner.autodocstring"
     ]
 }
