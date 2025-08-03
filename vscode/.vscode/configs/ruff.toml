@@ -1,0 +1,49 @@
+# ruff.toml
+
+# Set a common line length. 88 is the standard set by the Black formatter.
+line-length = 88
+# Indent width is typically handled by .editorconfig, but can be set here.
+indent-width = 4
+
+# Define the target Python version to ensure compatibility.
+# Options: "py37", "py38", "py39", "py310", "py311", "py312"
+target-version = "py312"
+
+[lint]
+# A curated set of rules for high-quality code.
+# E, W: PEP 8 standards (pycodestyle)
+# F: Logic errors (Pyflakes)
+# I: Import sorting (isort)
+# B: Common bugs and style issues (flake8-bugbear)
+# C90: Code complexity (mccabe)
+# SIM: Simplification suggestions (flake8-simplify)
+# TID: Tidy imports (flakee-tidy-imports)
+# UP: Modern Python syntax upgrades (pyupgrade)
+select = ["E", "W", "F", "I", "B", "C90", "SIM", "TID", "UP"]
+
+# Ignore specific, often noisy or project-dependent rules.
+# E501: Line too long (handled by the formatter).
+# B905: `zip()` without `strict=`. Can be noisy; enable if needed.
+# I001: Unsorted imports (handled by the formatter/fixer).
+ignore = ["E501", "B905", "I001"]
+
+# Allow autofix for all enabled rules.
+fixable = ["ALL"]
+unfixable = []
+
+# For TID (flake8-tidy-imports), you can ban certain imports.
+# For example, to prevent relative imports.
+[lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+# For C90 (mccabe), set the max complexity to a reasonable number.
+[lint.mccabe]
+max-complexity = 10
+
+[format]
+# Use double quotes for strings, which is a common convention.
+quote-style = "double"
+# Use spaces for indentation.
+indent-style = "space"
+# Add a trailing comma where possible for cleaner git diffs.
+skip-magic-trailing-comma = false

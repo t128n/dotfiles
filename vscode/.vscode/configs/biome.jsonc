@@ -1,0 +1,31 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 4,
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      // Start with Biome's recommended rules.
+      "recommended": true,
+      "style": {
+        "useNamingConvention": "error",
+        "useSingleVarDeclarator": "error"
+      },
+      "suspicious": {
+        "noWith": "error"
+      },
+      "nursery": "error"
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always"
+    }
+  }
+}
