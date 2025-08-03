@@ -6,8 +6,8 @@
         "miguelsolorio.fluent-icons", // product icon theme
         //^ depends on mikestead.dotenv
         "usernamehw.errorlens", // better error highlighting
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
+        // "GitHub.copilot", // -> preinstalled with vscode
+        // "GitHub.copilot-chat", // -> preinstalled with vscode
         "streetsidesoftware.code-spell-checker", // spell checker
         "aaron-bond.better-comments",
         "EditorConfig.EditorConfig",
