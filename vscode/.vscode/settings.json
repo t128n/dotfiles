@@ -389,7 +389,8 @@
         "venv",
         "Torben",
         "Haack",
-        "t128n"
+        "t128n",
+        "justfile"
     ],
     // --- PyLance & Ruff ---
     "python.analysis.typeCheckingMode": "standard",
