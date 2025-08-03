@@ -390,7 +390,8 @@
         "Torben",
         "Haack",
         "t128n",
-        "justfile"
+        "justfile",
+        "maskfile"
     ],
     // --- PyLance & Ruff ---
     "python.analysis.typeCheckingMode": "standard",
