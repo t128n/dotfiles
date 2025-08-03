@@ -83,7 +83,7 @@
     // Hide the status bar at the very bottom of the window.
     "workbench.statusBar.visible": false,
     // --- Editor Tabs ---
-    // Hide editor tabs completely to focus on the current file.
+    // OUTDATED: Hide editor tabs completely to focus on the current file.
     "workbench.editor.showTabs": "multiple",
     // Activates a limit on the number of editor tabs that can be open simultaneously.
     "workbench.editor.limit.enabled": true,
@@ -193,6 +193,8 @@
         "source.fixAll.biome": "explicit",
         "source.organizeImports.biome": "explicit",
     },
+    // Keep 5 lines of context above and below the cursor when scrolling.
+    "editor.cursorSurroundingLines": 5,
     // --- Language-Specific ---
     // Automatically update the closing tag when an opening HTML/XML tag is renamed.
     "editor.linkedEditing": true,
