@@ -62,13 +62,16 @@ function installRecommended() {
     console.log("Installing recommended extensions...");
     const { recommendations = [] } = parseJsonc(extensionsJsonPath);
 
+    console.log(`Found ${recommendations.length} recommended extensions to install:`);
+    recommendations.forEach((ext) => console.log(`- ${ext}`));
+
     if (recommendations.length === 0) {
         console.log("No recommended extensions to install.");
         return;
     }
 
     for (const ext of recommendations) {
-        runCommand(`code --install-extension ${ext}`);
+        runCommand(`code --install-extension ${ext} --force`);
     }
     console.log("Finished installing extensions.");
 }
@@ -99,7 +102,16 @@ function pruneExtensions() {
     installed.forEach((ext) => console.log(`- ${ext}`));
 
     for (const ext of installed) {
-        runCommand(`code --uninstall-extension ${ext}`);
+        if (ext.toLowerCase().startsWith("github.")) {
+            console.log(`Skipping extension ${ext} as it is too tightly coupled with VS Code.`);
+            continue;
+        }
+        try {
+            runCommand(`code --uninstall-extension ${ext}`);
+        } catch (exception) {
+            console.warn(`Failed to uninstall extension ${ext}. It may not be installed anymore or is in use.`);
+            console.warn("Continuing with the next extension...");
+        }
     }
     console.log("Finished uninstalling all extensions.");
 }
