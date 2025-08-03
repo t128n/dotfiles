@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "install-recommended",
+            "type": "shell",
+            "command": "node .vscode/scripts/sync-extensions.js install",
+            "problemMatcher": []
+        },
+        {
+            "label": "prune-unrecommended",
+            "type": "shell",
+            "command": "node .vscode/scripts/sync-extensions.js prune",
+            "problemMatcher": []
+        },
+        {
+            "label": "sync-extensions",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "prune-unrecommended",
+                "install-recommended"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            }
+        }
+    ]
+}
