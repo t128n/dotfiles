@@ -181,12 +181,17 @@
     "editor.formatOnSave": true,
     // Format only the lines that have been modified.
     "editor.formatOnSaveMode": "modificationsIfAvailable",
+    // Configure default formatters for different languages.
+    "editor.defaultFormatter": "biomejs.biome",
     // Actions that run automatically whenever you save a file.
     "editor.codeActionsOnSave": {
         // Automatically fix all fixable issues in the file when saving.
-        "source.fixAll": "always",
+        "source.fixAll": "explicit",
         // Prevents VS Code from automatically sorting and removing unused import statements on save. Will be handled by the specific language extensions.
-        "source.organizeImports": "never"
+        "source.organizeImports": "never",
+        // Extension specific actions:
+        "source.fixAll.biome": "explicit",
+        "source.organizeImports.biome": "explicit",
     },
     // --- Language-Specific ---
     // Automatically update the closing tag when an opening HTML/XML tag is renamed.
@@ -300,8 +305,102 @@
         {
             "text": "Review the selected code changes. Provide feedback on the changes, such as 'Looks good', 'Needs improvement', or 'Incorrect'."
         }
-    ]
+    ],
     // -------------------------
     // [ Extensions ]
     // -------------------------
+    // --- Error Lens ---
+    // Make errors visible but not intrusive.
+    "errorLens.delay": 500,
+    "errorLens.fontFamily": "Monaspace Radon",
+    "errorLens.fontStyleItalic": true,
+    // --- Better Comments ---
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "fixme",
+            "color": "#E06C75",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        }
+    ],
+    // --- Spell Checker ---
+    "cSpell.ignorePaths": [
+        "node_modules",
+        "dist",
+        "build",
+        "*.lock",
+        ".git"
+    ],
+    "cSpell.userWords": [
+        "astro",
+        "pylance",
+        "tailwindcss",
+        "toml",
+        "venv",
+        "Torben",
+        "Haack",
+        "t128n"
+    ],
+    // --- PyLance & Ruff ---
+    "python.analysis.typeCheckingMode": "standard",
+    "python.terminal.activateEnvironment": true,
+    "autoDocstring.docstringFormat": "google",
+    // -------------------------
+    // [ Language-Specific Settings ]
+    // -------------------------
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        }
+    },
 }
