@@ -12,6 +12,7 @@
         "aaron-bond.better-comments",
         "EditorConfig.EditorConfig",
         "naumovs.color-highlight",
+        "nefrob.vscode-just-syntax",
         // [ LANGUAGES ]
         "mikestead.dotenv", // .env
         "ms-python.python", // python
