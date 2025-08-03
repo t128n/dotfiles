@@ -4,13 +4,13 @@
         {
             "label": "install-recommended",
             "type": "shell",
-            "command": "node .vscode/scripts/sync-extensions.js install",
+            "command": "node .vscode/scripts/extensions.mjs install",
             "problemMatcher": []
         },
         {
             "label": "prune-unrecommended",
             "type": "shell",
-            "command": "node .vscode/scripts/sync-extensions.js prune",
+            "command": "node .vscode/scripts/extensions.mjs prune",
             "problemMatcher": []
         },
         {

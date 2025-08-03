@@ -3,7 +3,18 @@ import { resolve } from "path";
 import { execSync } from "child_process";
 import { cwd } from "process";
 
-console.log("Starting VS Code extensions sync script...");
+if (process.env.TERM_PROGRAM === "vscode") {
+    console.error("This script should not be run from within VS Code's integrated terminal.");
+    console.error("Please run it from a regular terminal or command prompt.");
+    console.error("Usage:")
+    console.error("  node .vscode/scripts/extensions.mjs install   # To install recommended extensions");
+    console.error("  node .vscode/scripts/extensions.mjs prune     # To uninstall all extensions");
+    console.error("  node .vscode/scripts/extensions.mjs sync      # To sync extensions with the recommendations");
+    console.error("Exiting...");
+    process.exit(1);
+}
+
+console.log("Starting VS Code extensions script...");
 console.log(`Current working directory: ${cwd()}`);
 
 // --- Configuration ---
@@ -63,12 +74,10 @@ function installRecommended() {
 }
 
 /**
- * Uninstalls any extensions that are not in the 'recommendations' list.
+ * Uninstalls all installed VS Code extensions.
  */
-function pruneUnrecommended() {
-    console.log("Pruning unrecommended extensions...");
-    const { recommendations = [] } = parseJsonc(extensionsJsonPath);
-    const recommendedSet = new Set(recommendations);
+function pruneExtensions() {
+    console.log("Uninstalling all VS Code extensions...");
 
     let installedStr = "";
     try {
@@ -81,20 +90,18 @@ function pruneUnrecommended() {
 
     const installed = installedStr.split("\n").filter(Boolean); // Filter out empty lines
 
-    const toPrune = installed.filter((ext) => !recommendedSet.has(ext));
-
-    if (toPrune.length === 0) {
-        console.log("No unrecommended extensions to prune.");
+    if (installed.length === 0) {
+        console.log("No extensions to uninstall.");
         return;
     }
 
     console.log("Found the following extensions to uninstall:");
-    toPrune.forEach((ext) => console.log(`- ${ext}`));
+    installed.forEach((ext) => console.log(`- ${ext}`));
 
-    for (const ext of toPrune) {
+    for (const ext of installed) {
         runCommand(`code --uninstall-extension ${ext}`);
     }
-    console.log("Finished pruning extensions.");
+    console.log("Finished uninstalling all extensions.");
 }
 
 // --- Main Execution ---
@@ -105,7 +112,11 @@ switch (command) {
         installRecommended();
         break;
     case "prune":
-        pruneUnrecommended();
+        pruneExtensions();
+        break;
+    case "sync":
+        pruneExtensions();
+        installRecommended();
         break;
     default:
         console.error("Unknown command. Please use 'install' or 'prune'.");
