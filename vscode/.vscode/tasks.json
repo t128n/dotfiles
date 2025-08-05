@@ -30,6 +30,53 @@
                 "panel": "new",
                 "clear": true
             }
+        },
+        {
+            "label": "copy-configs",
+            "type": "shell",
+            "command": "node .vscode/scripts/configs.mjs",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            }
+        },
+        {
+            "label": "copy-keybindings",
+            "type": "shell",
+            "command": "node .vscode/scripts/keybindings.mjs",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            }
+        },
+        {
+            "label": "generate-keybindings",
+            "type": "shell",
+            "command": "node .vscode/scripts/generate-keybindings.mjs",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            }
+        },
+        {
+            "label": "sync-keybindings",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "generate-keybindings",
+                "copy-keybindings"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            }
         }
     ]
 }

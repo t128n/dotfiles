@@ -1,2 +1,110 @@
-// TODO: Create Node-JS Script which overwrite the vs-code settings with this
-// TODO: and prunes the global keybindings to only keep this ones.
+[
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "description": "Toggle terminal visibility",
+    "when": "isMac"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "description": "Toggle terminal visibility",
+    "when": "!isMac"
+  },
+  {
+    "key": "cmd+alt+e",
+    "command": "workbench.view.extensions",
+    "description": "Open Extensions view",
+    "when": "isMac"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.view.extensions",
+    "description": "Open Extensions view",
+    "when": "!isMac"
+  },
+  {
+    "key": "cmd+g",
+    "command": "workbench.view.scm",
+    "description": "Open Source Control (Git) view",
+    "when": "isMac"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "workbench.view.scm",
+    "description": "Open Source Control (Git) view",
+    "when": "!isMac"
+  },
+  {
+    "key": "cmd+e",
+    "command": "workbench.view.explorer",
+    "description": "Open Explorer (Files) view",
+    "when": "isMac"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.view.explorer",
+    "description": "Open Explorer (Files) view",
+    "when": "!isMac"
+  },
+  {
+    "key": "cmd+l",
+    "command": "expandLineSelection",
+    "when": "textInputFocus && isMac",
+    "description": "Select current line when in a text editor"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "expandLineSelection",
+    "when": "textInputFocus && !isMac",
+    "description": "Select current line when in a text editor"
+  },
+  {
+    "key": "cmd+y",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "description": "Toggle auxiliary bar (e.g., chat, Copilot)",
+    "when": "isMac"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "description": "Toggle auxiliary bar (e.g., chat, Copilot)",
+    "when": "!isMac"
+  },
+  {
+    "key": "cmd+shift+c",
+    "command": "runCommands",
+    "when": "editorTextFocus && isMac",
+    "args": {
+      "commands": [
+        "editor.action.clipboardCopyWithSyntaxHighlightingAction",
+        "expandLineSelection"
+      ]
+    },
+    "description": "Copy current line with syntax highlighting, then select the line"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "runCommands",
+    "when": "editorTextFocus && !isMac",
+    "args": {
+      "commands": [
+        "editor.action.clipboardCopyWithSyntaxHighlightingAction",
+        "expandLineSelection"
+      ]
+    },
+    "description": "Copy current line with syntax highlighting, then select the line"
+  },
+  {
+    "key": "cmd+k",
+    "command": "editor.action.clipboardCutAction",
+    "when": "textInputFocus && isMac",
+    "description": "Cut current line when in a text editor"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "editor.action.clipboardCutAction",
+    "when": "textInputFocus && !isMac",
+    "description": "Cut current line when in a text editor"
+  }
+]
