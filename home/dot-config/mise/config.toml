@@ -1,0 +1,26 @@
+[tools]
+bun = "1.4"
+node = "lts"
+uv = "0.13"
+
+opencode = "latest"
+"github:anomalyco/hex" = "latest"
+
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+ghq = "latest"
+jq = "latest"
+ripgrep = "latest"
+yq = "latest"
+
+gitleaks = "latest"
+hk = "latest"
+semgrep = "latest"
+trivy = "latest"
+
+"npm:agent-browser" = "latest"
+"npm:agent-desktop" = "latest"
+"npm:webreel" = "latest"
+"npm:opensrc" = "latest"
+"npm:skills" = "latest"

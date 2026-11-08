@@ -1,0 +1,12 @@
+# Machine-specific config and secrets. Never commit these.
+*.local.toml
+mise.local.toml
+allowed_signers
+
+# Agent scratch files.
+.agents/
+
+# OS noise.
+.DS_Store
+Thumbs.db
+desktop.ini

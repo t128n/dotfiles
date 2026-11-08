@@ -1,0 +1,51 @@
+[include]
+	path = ~/.gitconfig-identity
+
+[core]
+	autocrlf = input
+	longpaths = true
+
+[init]
+	defaultBranch = main
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[rebase]
+	autoStash = true
+	autosquash = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+	algorithm = histogram
+
+[rerere]
+	enabled = true
+
+[commit]
+	gpgsign = true
+	verbose = true
+
+[tag]
+	gpgsign = true
+	sort = version:refname
+
+[gpg]
+	format = ssh
+
+[branch]
+	sort = -committerdate
+
+[column]
+	ui = auto
+
+[ghq]
+	root = ~/Workspace/Repos
