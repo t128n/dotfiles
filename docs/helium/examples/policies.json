@@ -1,0 +1,29 @@
+{
+  "$comment": "Desired Helium policy manifest for HKLM\\SOFTWARE\\Policies\\Helium. Types matter: dword = REG_DWORD, sz = REG_SZ (JSON policies are sz). Not applied automatically - see README.md.",
+  "values": {
+    "DefaultSearchProviderEnabled": { "type": "dword", "value": 1 },
+    "DefaultSearchProviderName": { "type": "sz", "value": "DuckDuckGo" },
+    "DefaultSearchProviderSearchURL": { "type": "sz", "value": "https://duckduckgo.com/?q={searchTerms}" },
+    "DefaultSearchProviderSuggestURL": { "type": "sz", "value": "https://duckduckgo.com/ac/?q={searchTerms}&type=list" },
+    "MetricsReportingEnabled": { "type": "dword", "value": 0 },
+    "BackgroundModeEnabled": { "type": "dword", "value": 0 },
+    "HardwareAccelerationModeEnabled": { "type": "dword", "value": 1 },
+    "BookmarkBarEnabled": { "type": "dword", "value": 1 },
+    "ShowHomeButton": { "type": "dword", "value": 0 },
+    "PasswordManagerEnabled": { "type": "dword", "value": 0 },
+    "AutofillAddressEnabled": { "type": "dword", "value": 0 },
+    "AutofillCreditCardEnabled": { "type": "dword", "value": 0 },
+    "SyncDisabled": { "type": "dword", "value": 1 },
+    "BrowserSignin": { "type": "dword", "value": 0 },
+    "SearchSuggestEnabled": { "type": "dword", "value": 1 },
+    "DefaultBrowserSettingEnabled": { "type": "dword", "value": 0 },
+    "RestoreOnStartup": { "type": "dword", "value": 1 },
+    "HttpsOnlyMode": { "type": "sz", "value": "force_enabled" },
+    "DnsOverHttpsMode": { "type": "sz", "value": "secure" }
+  },
+  "subkeys": {
+    "ExtensionInstallForcelist": [
+      "ghmbeldphafepmbegfdlkpapadhbakde;https://clients2.google.com/service/update2/crx"
+    ]
+  }
+}

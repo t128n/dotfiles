@@ -1,0 +1,24 @@
+{
+  "helium": {
+    "completed_onboarding": true,
+    "services": { "schema_version": 1, "user_consented": true },
+    "browser": {
+      "centered_location_bar": true,
+      "layout": 0,
+      "minimal_location_bar": false,
+      "rounded_frame": true,
+      "zen_mode": false,
+      "zen_mode_sidebar_pinned": true,
+      "zen_mode_top_chrome_pinned": true
+    }
+  },
+  "bookmark_bar": { "show_on_all_tabs": true },
+  "browser": { "show_home_button": false },
+  "session": { "restore_on_startup": 1 },
+  "profile": { "name": "Your Helium" },
+  "distribution": {
+    "skip_first_run_ui": true,
+    "make_chrome_default": false,
+    "suppress_first_run_default_browser_prompt": true
+  }
+}

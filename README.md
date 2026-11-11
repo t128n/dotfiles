@@ -2,6 +2,10 @@
 
 machine setup with [mise](https://mise.jdx.dev).
 
+## Docs
+
+- [Helium configuration](docs/helium/README.md) — policies, first-run profile seed, extensions
+
 ## Setup
 
 Install [Git](https://git-scm.com/downloads) if it is not already available, then use the commands for your platform.
