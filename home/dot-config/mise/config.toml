@@ -21,6 +21,8 @@ trivy = "latest"
 
 "npm:agent-browser" = "latest"
 "npm:agent-desktop" = "latest"
+# Official browse MCP server; mise's low-download check needs explicit approval.
+"npm:@opencode/browse" = { version = "latest", allow_low_downloads = true }
 "npm:webreel" = "latest"
 "npm:opensrc" = "latest"
 "npm:skills" = "latest"
