@@ -42,6 +42,11 @@ run = ["mise doctor", "mise dot status"]
 description = "Create the ~/Workspace layout and add ~/Workspace/Bin to the user PATH"
 run = "bun scripts/setup-workspace.ts"
 
+[tasks."browse:install"]
+description = "Install the browse CLI when missing (OpenCode browse MCP server)"
+run = "command -v browse >/dev/null 2>&1 || curl -fsSL https://opencode.ai/browse/install | sh -s -- --no-setup"
+run_windows = 'where browse >nul 2>nul || powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((irm https://opencode.ai/browse/install.ps1))) --no-setup"'
+
 [tasks."gitconfig:identity"]
 description = "Open ~/.gitconfig-identity in your editor"
 run = "${EDITOR:-vi} ~/.gitconfig-identity"
@@ -50,4 +55,4 @@ run_windows = "notepad %USERPROFILE%\\.gitconfig-identity"
 # Runs after every `mise bootstrap` or `mise run setup`.
 [tasks.bootstrap]
 description = "Verify the deployment after bootstrap"
-run = "mise dot diff"
+run = ["mise dot diff", "mise run browse:install"]
