@@ -1,7 +1,3 @@
-[env]
-# browse and other user-local CLIs install here; OpenCode starts the browse MCP server by name.
-_.path = ["~/.local/bin"]
-
 [tools]
 bun = "1.4"
 node = "lts"
