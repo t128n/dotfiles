@@ -27,5 +27,6 @@ Prefer:
 - `bun`, `node`, `uv` — JavaScript and Python tooling, following project conventions.
 - `gitleaks`, `semgrep`, `trivy` — Security checks when relevant.
 - `agent-browser`, `agent-desktop` — Browser and desktop interaction.
+- `browse` — Browser automation and page fetching through the browse MCP server. The built-in `browser` and `webfetch` tools are disabled.
 - `webreel` — Capture browser interactions when visual evidence is useful.
 - `opensrc` — Inspect dependency source when documentation or types are insufficient.

@@ -1,0 +1,134 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Tool versions are managed by mise.
+  "update": "disable",
+
+  // Use project-detected formatters after file modifications.
+  "formatter": true,
+
+  // Default agent for general build/implementation tasks.
+  "default_agent": "build",
+
+  // Worktree base directory in cross-platform temp directory.
+  "worktree": {
+    "directory": "${TMP}/worktrees",
+  },
+
+  // Global skill directories.
+  "skills": [
+    "~/.config/mise/conf.d/ai/skills",
+    "~/Workspace/Repos/github.com/t128n/ai/skills",
+  ],
+
+  // Browser automation runs through the browse MCP server, never an in-app browser.
+  "mcp": {
+    "servers": {
+      "browse": {
+        "type": "local",
+        "command": ["browse", "mcp"],
+        "environment": {
+          "OPENCODE_BROWSER_RUNTIME": "auto-update",
+        },
+      },
+    },
+  },
+
+  // Security and permissions policy (last match wins, no match = ask).
+  "permissions": [
+    // External directory access: ask by default, but allow Workspace repositories and temp directories.
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask",
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/Workspace/**",
+      "effect": "allow",
+    },
+    // Temporary directories on Windows, Linux, and macOS.
+    {
+      "action": "external_directory",
+      "resource": "~/AppData/Local/Temp/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "~/AppData/Local/Temp/opencode/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/tmp/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/tmp/opencode/*",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/tmp/opencode/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/private/tmp/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/var/tmp/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/private/var/tmp/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/var/folders/**",
+      "effect": "allow",
+    },
+    {
+      "action": "external_directory",
+      "resource": "/private/var/folders/**",
+      "effect": "allow",
+    },
+
+    // Web access: deny the built-in tools so agents use the browse MCP server
+    // (tools.browse.*) instead of the desktop in-app browser or webfetch.
+    // A browser deny removes the desktop browser catalog entirely.
+    { "action": "browser", "resource": "*", "effect": "deny" },
+    { "action": "webfetch", "resource": "*", "effect": "deny" },
+
+    // Sensitive files: deny reading environment secrets, allow examples.
+    {
+      "action": "read",
+      "resource": "**/*.env",
+      "effect": "deny",
+    },
+    {
+      "action": "read",
+      "resource": "**/*.env.*",
+      "effect": "deny",
+    },
+    {
+      "action": "read",
+      "resource": "**/*.env.example",
+      "effect": "allow",
+    },
+    {
+      "action": "read",
+      "resource": "**/*.env.*.example",
+      "effect": "allow",
+    },
+
+    // Shell safety: require approval for push and destructive resets.
+    { "action": "shell", "resource": "git * push *", "effect": "ask" },
+    { "action": "shell", "resource": "git * reset --hard *", "effect": "ask" },
+  ],
+}
