@@ -58,3 +58,8 @@ arg "<directory>" help="Destination directory"
 '''
 run = 'copier copy --trust "$HOME/.local/share/t128n-dotfiles-templates/$usage_template" "$usage_directory"'
 run_windows = 'copier copy --trust "%USERPROFILE%\.local\share\t128n-dotfiles-templates\%usage_template%" "%usage_directory%"'
+
+[tasks.clean]
+description = "Apply the declared system state (dry-run; pass --apply)"
+run = 'sh "$HOME/.local/share/t128n-dotfiles/scripts/cleanup/run.sh"'
+run_windows = 'pwsh -NoProfile -File "%USERPROFILE%\.local\share\t128n-dotfiles\scripts\cleanup\windows.ps1"'

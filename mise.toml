@@ -16,6 +16,7 @@ starship = "latest"
 "~/.gitconfig" = { source = "home/dot-gitconfig", mode = "symlink" }
 "~/.gitconfig-identity" = { source = "home/dot-gitconfig-identity", mode = "copy", create_if_missing = true }
 "~/.local/share/t128n-dotfiles-templates" = { source = "templates", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/scripts/cleanup" = { source = "scripts/cleanup", mode = "symlink" }
 "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "home/dot-config/powershell/Microsoft.PowerShell_profile.ps1", mode = "symlink" }
 "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" = { source = "home/dot-config/windows-terminal/settings.json", mode = "symlink" }
 
