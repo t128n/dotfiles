@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
- * Ensure the ~/Workspace layout exists and that ~/Workspace/Bin is on the
- * user PATH.
+ * Ensure the ~/Workspace layout and ~/.local/bin exist, and that
+ * ~/.local/bin is on the user PATH.
  *
  * Usage: bun scripts/setup-workspace.ts
  */
@@ -10,9 +10,12 @@ import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { basename, dirname, join } from "node:path";
 
-const WORKSPACE = join(homedir(), "Workspace");
-const WORKSPACE_DIRS = ["Repos", "Scratch", "Bin"];
-const BIN = join(WORKSPACE, "Bin");
+const HOME = homedir();
+const WORKSPACE = join(HOME, "Workspace");
+const WORKSPACE_DIRS = ["Repos", "Resources", "Scratch"];
+const BIN = join(HOME, ".local", "bin");
+const LEGACY_BIN = join(WORKSPACE, "Bin");
+const PATH_MARKER = "# Added by the dotfiles setup-workspace script: ~/.local/bin on PATH";
 
 async function ensureDir(dir: string): Promise<"created" | "present"> {
   try {
@@ -30,12 +33,18 @@ async function ensureDir(dir: string): Promise<"created" | "present"> {
   }
 }
 
-function addToWindowsUserPath(dir: string): "added" | "present" {
+interface WindowsPathResult {
+  path: "added" | "present";
+  stale: "removed" | "absent";
+}
+
+function updateWindowsUserPath(bin: string, legacyBin: string): WindowsPathResult {
   // Read and write HKCU\Environment directly so REG_EXPAND_SZ values keep
   // expanding and existing entries keep their order.
   const script = `
 $ErrorActionPreference = 'Stop'
-$target = $env:DOTFILES_WORKSPACE_BIN
+$target = ([Environment]::ExpandEnvironmentVariables($env:DOTFILES_BIN_DIR)).TrimEnd('\\')
+$legacy = ([Environment]::ExpandEnvironmentVariables($env:DOTFILES_LEGACY_BIN_DIR)).TrimEnd('\\')
 $key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
 $value = ''
 $kind = [Microsoft.Win32.RegistryValueKind]::ExpandString
@@ -44,50 +53,77 @@ if ($null -ne $key -and ($key.GetValueNames() -contains 'Path')) {
   $kind = $key.GetValueKind('Path')
 }
 $parts = @($value -split ';' | Where-Object { $_ -ne '' })
-$already = $parts | Where-Object {
-  ([Environment]::ExpandEnvironmentVariables($_)).TrimEnd('\\') -eq $target
+$normalize = {
+  param($entry)
+  ([Environment]::ExpandEnvironmentVariables($entry)).TrimEnd('\\')
 }
-if ($already) {
-  Write-Output 'present'
-  exit 0
+$legacyParts = @($parts | Where-Object { (& $normalize $_) -eq $legacy })
+$parts = @($parts | Where-Object { (& $normalize $_) -ne $legacy })
+$already = @($parts | Where-Object { (& $normalize $_) -eq $target })
+$changed = $false
+if ($legacyParts.Count -gt 0) { $changed = $true }
+if ($already.Count -eq 0) {
+  $parts = @($parts) + $target
+  $changed = $true
 }
-if ($null -eq $key) {
-  $key = [Microsoft.Win32.Registry]::CurrentUser.CreateSubKey('Environment')
+if ($changed) {
+  if ($null -eq $key) {
+    $key = [Microsoft.Win32.Registry]::CurrentUser.CreateSubKey('Environment')
+  }
+  $key.SetValue('Path', ($parts -join ';'), $kind)
 }
-$key.SetValue('Path', (@($parts) + $target) -join ';', $kind)
-Write-Output 'added'
+@{ path = $(if ($already.Count -eq 0) { 'added' } else { 'present' }); stale = $(if ($legacyParts.Count -gt 0) { 'removed' } else { 'absent' }) } | ConvertTo-Json -Compress
 `;
 
   const output = execFileSync(
     "powershell.exe",
     ["-NoProfile", "-NonInteractive", "-Command", script],
-    { encoding: "utf8", env: { ...process.env, DOTFILES_WORKSPACE_BIN: dir } },
+    {
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        DOTFILES_BIN_DIR: bin,
+        DOTFILES_LEGACY_BIN_DIR: legacyBin,
+      },
+    },
   ).trim();
 
-  if (output === "added" || output === "present") {
-    return output;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(output);
+  } catch {
+    throw new Error(`Unexpected PowerShell output: ${output}`);
+  }
+
+  const result = parsed as Partial<WindowsPathResult>;
+  const path = result?.path;
+  const stale = result?.stale;
+  if (
+    (path === "added" || path === "present") &&
+    (stale === "removed" || stale === "absent")
+  ) {
+    return { path, stale };
   }
   throw new Error(`Unexpected PowerShell output: ${output}`);
 }
 
 async function addToPosixUserPath(): Promise<"added" | "present"> {
-  const home = homedir();
   const shell = basename(process.env.SHELL ?? "");
-  const marker = "$HOME/Workspace/Bin";
+  const target = "$HOME/.local/bin";
 
   let rcFile: string;
   let block: string;
   if (shell === "fish") {
-    rcFile = join(home, ".config", "fish", "config.fish");
-    block = `fish_add_path ${marker}\n`;
+    rcFile = join(HOME, ".config", "fish", "config.fish");
+    block = `${PATH_MARKER}\nfish_add_path ${target}\n`;
   } else {
     rcFile =
       shell === "zsh"
-        ? join(home, ".zshrc")
+        ? join(HOME, ".zshrc")
         : shell === "bash"
-          ? join(home, ".bashrc")
-          : join(home, ".profile");
-    block = `\n# Added by the dotfiles setup-workspace script.\ncase ":$PATH:" in\n  *":${marker}:"*) ;;\n  *) export PATH="${marker}:$PATH" ;;\nesac\n`;
+          ? join(HOME, ".bashrc")
+          : join(HOME, ".profile");
+    block = `\n${PATH_MARKER}\ncase ":$PATH:" in\n  *":${target}:"*) ;;\n  *) export PATH="${target}:$PATH" ;;\nesac\n`;
   }
 
   let content = "";
@@ -99,7 +135,7 @@ async function addToPosixUserPath(): Promise<"added" | "present"> {
     }
   }
 
-  if (content.includes(marker)) {
+  if (content.includes(PATH_MARKER)) {
     return "present";
   }
 
@@ -110,26 +146,31 @@ async function addToPosixUserPath(): Promise<"added" | "present"> {
 }
 
 function display(path: string): string {
-  const home = homedir();
-  return path.startsWith(home) ? `~${path.slice(home.length)}` : path;
+  return path.startsWith(HOME) ? `~${path.slice(HOME.length)}` : path;
 }
 
 async function main(): Promise<void> {
-  for (const name of WORKSPACE_DIRS) {
-    const dir = join(WORKSPACE, name);
+  const dirs = [WORKSPACE, ...WORKSPACE_DIRS.map((name) => join(WORKSPACE, name)), BIN];
+  for (const dir of dirs) {
     const result = await ensureDir(dir);
     console.log(`${display(dir)}: ${result === "created" ? "created" : "ok"}`);
   }
 
-  const pathResult =
+  const pathState =
     process.platform === "win32"
-      ? addToWindowsUserPath(BIN)
-      : await addToPosixUserPath();
+      ? updateWindowsUserPath(BIN, LEGACY_BIN)
+      : { path: await addToPosixUserPath(), stale: "absent" as const };
 
-  if (pathResult === "added") {
+  if (pathState.path === "added") {
     console.log(`${display(BIN)}: added to the user PATH (restart your shell)`);
   } else {
     console.log(`${display(BIN)}: already on the user PATH`);
+  }
+
+  if (pathState.stale === "removed") {
+    console.log(
+      `${display(LEGACY_BIN)}: removed from the user PATH (move its contents to ${display(BIN)})`,
+    );
   }
 }
 

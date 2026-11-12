@@ -42,7 +42,7 @@ description = "Check mise, Git, and dotfile state"
 run = ["mise doctor", "mise dot status"]
 
 [tasks.workspace]
-description = "Create the ~/Workspace layout and add ~/Workspace/Bin to the user PATH"
+description = "Create the ~/Workspace layout and add ~/.local/bin to the user PATH"
 run = "bun scripts/setup-workspace.ts"
 
 [tasks.env]
