@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "rea": {
+        "type": "local",
+        "command": ["mise", "--quiet", "exec", "--", "rea", "mcp"],
+        "cwd": ".",
+        "timeout": {
+          "startup": 60000
+        }
+      }
+    }
+  }
+}

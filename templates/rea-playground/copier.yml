@@ -1,0 +1,6 @@
+_subdirectory: template
+
+_tasks:
+  - "mise trust"
+  - "mise -y install"
+  - "mise exec -- rea --version"

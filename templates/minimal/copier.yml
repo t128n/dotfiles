@@ -1,0 +1,10 @@
+_subdirectory: template
+
+project_name:
+  type: str
+  help: Project name
+
+project_slug:
+  type: str
+  default: "{{ project_name | lower | replace(' ', '-') }}"
+  help: Directory and package slug

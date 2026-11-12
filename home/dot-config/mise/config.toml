@@ -23,6 +23,7 @@ _.path = ["~/.local/share/cargo/bin"]
 bun = "1.4"
 node = "lts"
 uv = "0.13"
+"pypi:copier" = "latest"
 
 opencode = "latest"
 "github:anomalyco/hex" = "latest"
@@ -48,3 +49,12 @@ trivy = "latest"
 "npm:webreel" = "latest"
 "npm:opensrc" = "latest"
 "npm:skills" = "latest"
+
+[tasks.new]
+description = "Create a project from a template"
+usage = '''
+arg "<template>" help="Template directory name"
+arg "<directory>" help="Destination directory"
+'''
+run = 'copier copy --trust "$HOME/.local/share/t128n-dotfiles-templates/$usage_template" "$usage_directory"'
+run_windows = 'copier copy --trust "%USERPROFILE%\.local\share\t128n-dotfiles-templates\%usage_template%" "%usage_directory%"'

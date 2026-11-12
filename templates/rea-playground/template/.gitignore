@@ -1,0 +1,20 @@
+# Reverse-engineering artifacts are usually large or proprietary.
+/targets/*
+!/targets/.gitkeep
+
+/extracted/*
+!/extracted/.gitkeep
+
+/evidence/*
+!/evidence/.gitkeep
+
+/captures/*
+!/captures/.gitkeep
+
+/tools/*
+!/tools/.gitkeep
+
+/tmp/*
+!/tmp/.gitkeep
+
+node_modules/
