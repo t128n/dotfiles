@@ -1,0 +1,312 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "globalSummon",
+                "desktop": "toCurrent",
+                "dropdownDuration": 200,
+                "monitor": "toMouse",
+                "name": "_quake",
+                "toggleVisibility": true
+            },
+            "id": "User.quakeSummon"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "id": "User.focusRight"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTabDuplicate"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copyPlain"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "id": "User.focusUp"
+        },
+        {
+            "command": "paste",
+            "id": "User.pastePlain"
+        },
+        {
+            "command": "closePane",
+            "id": "User.closeActivePane"
+        },
+        {
+            "command": "find",
+            "id": "User.findText"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitAuto"
+        },
+        {
+            "command": "togglePaneZoom",
+            "id": "User.toggleZoom"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitDown"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitRight"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.focusLeft"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.focusDown"
+        }
+    ],
+    "alwaysShowNotificationIcon": true,
+    "centerOnLaunch": true,
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "disabledProfileSources": 
+    [
+        "Windows.Terminal.Wsl",
+        "Windows.Terminal.Azure",
+        "Windows.Terminal.VisualStudio"
+    ],
+    "firstWindowPreference": "defaultProfile",
+    "initialCols": 120,
+    "initialRows": 35,
+    "keybindings": 
+    [
+        {
+            "id": "User.newTabDuplicate",
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "id": "User.quakeSummon",
+            "keys": "ctrl+`"
+        },
+        {
+            "id": "User.copyPlain",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.toggleZoom",
+            "keys": "alt+shift+z"
+        },
+        {
+            "id": "User.closeActivePane",
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "id": "User.pastePlain",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.findText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.splitAuto",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "User.splitDown",
+            "keys": "alt+shift+minus"
+        },
+        {
+            "id": "User.splitRight",
+            "keys": "alt+shift+plus"
+        },
+        {
+            "id": "User.focusLeft",
+            "keys": "alt+h"
+        },
+        {
+            "id": "User.focusDown",
+            "keys": "alt+j"
+        },
+        {
+            "id": "User.focusUp",
+            "keys": "alt+k"
+        },
+        {
+            "id": "User.focusRight",
+            "keys": "alt+l"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "bellStyle": "none",
+            "closeOnExit": "graceful",
+            "colorScheme": "Oxocarbon Dark",
+            "cursorShape": "bar",
+            "experimental.rendering.forceFullRepaint": false,
+            "experimental.retroTerminalEffect": false,
+            "experimental.softwareRendering": false,
+            "font": 
+            {
+                "face": "Cascadia Code",
+                "features": 
+                {
+                    "calt": 1,
+                    "liga": 1
+                },
+                "size": 11.5
+            },
+            "historySize": 10000,
+            "intenseTextStyle": "bright",
+            "opacity": 95,
+            "snapOnInput": true,
+            "startingDirectory": "%USERPROFILE%",
+            "textAntialiasingMode": "cleartype",
+            "useAcrylic": false,
+            "wordDelimiters": " /\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?│"
+        },
+        "list": 
+        [
+            {
+                "commandline": "pwsh.exe -NoLogo",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+                "name": "PowerShell 7",
+                "source": "Windows.Terminal.PowershellCore",
+                "tabTitle": "pwsh"
+            },
+            {
+                "commandline": "pwsh.exe -NoLogo -NoExit -Command \"$target = Read-Host 'Enter Remote Host (ComputerName or IP)'; if ($target) { Enter-PSSession -ComputerName $target }\"",
+                "guid": "{b20c9d78-9e61-464a-a4ea-ecdbbe323382}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+                "name": "Remote PowerShell",
+                "tabTitle": "remote"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "Command Prompt",
+                "tabTitle": "cmd"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
+                "name": "Windows PowerShell"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#161616",
+            "black": "#161616",
+            "blue": "#42BE65",
+            "brightBlack": "#525252",
+            "brightBlue": "#42BE65",
+            "brightCyan": "#FF7EB6",
+            "brightGreen": "#33B1FF",
+            "brightPurple": "#BE95FF",
+            "brightRed": "#3DDBD9",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#EE5396",
+            "cursorColor": "#F2F4F8",
+            "cyan": "#FF7EB6",
+            "foreground": "#F2F4F8",
+            "green": "#33B1FF",
+            "name": "Oxocarbon Dark",
+            "purple": "#BE95FF",
+            "red": "#3DDBD9",
+            "selectionBackground": "#393939",
+            "white": "#F2F4F8",
+            "yellow": "#EE5396"
+        },
+        {
+            "background": "#F2F4F8",
+            "black": "#F2F4F8",
+            "blue": "#42BE65",
+            "brightBlack": "#161616",
+            "brightBlue": "#42BE65",
+            "brightCyan": "#673AB7",
+            "brightGreen": "#0F62FE",
+            "brightPurple": "#BE95FF",
+            "brightRed": "#FF7EB6",
+            "brightWhite": "#525252",
+            "brightYellow": "#FF6F00",
+            "cursorColor": "#393939",
+            "cyan": "#673AB7",
+            "foreground": "#393939",
+            "green": "#0F62FE",
+            "name": "Oxocarbon Light",
+            "purple": "#BE95FF",
+            "red": "#FF7EB6",
+            "selectionBackground": "#525252",
+            "white": "#393939",
+            "yellow": "#FF6F00"
+        }
+    ],
+    "alwaysShowTabs": true,
+    "compatibility.reloadEnvironmentVariables": true,
+    "showTabsInTitlebar": true,
+    "tabSwitcherMode": "mru",
+    "tabWidthMode": "equal",
+    "themes": [],
+    "useAcrylicInTabRow": true,
+    "warning.confirmCloseAllTabs": true,
+    "warning.multiLinePaste": "automatic",
+    "windowingBehavior": "useExisting",
+    "wordDelimiters": " /\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502"
+}

@@ -45,10 +45,8 @@ New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelU
 Then open a normal PowerShell 7 (`pwsh`) window:
 
 ```powershell
-# Install mise and activate it in pwsh
+# Install mise
 irm https://mise.run/powershell | iex
-if (-not (Test-Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force | Out-Null }
-Add-Content $PROFILE '(&mise activate pwsh) | Out-String | Invoke-Expression'
 
 # Deploy this checkout
 git clone https://github.com/t128n/dotfiles.git ~/Workspace/Repos/github.com/t128n/dotfiles
@@ -58,4 +56,6 @@ mise bootstrap
 mise run workspace
 ```
 
-`mise bootstrap` installs the tools from `home/dot-config/mise/config.toml` and deploys every `[dotfiles]` entry. `mise run workspace` creates `~/Workspace/{Repos,Scratch,Bin}` and adds `~/Workspace/Bin` to your user `PATH`. Restart your shell afterwards so the deployed mise config and `PATH` change take effect.
+`mise bootstrap` installs the tools from `home/dot-config/mise/config.toml` and deploys every `[dotfiles]` entry, including your pwsh profile (`$PROFILE`) and Windows Terminal `settings.json`. `mise run workspace` creates `~/Workspace/{Repos,Scratch,Bin}` and adds `~/Workspace/Bin` to your user `PATH`. Restart pwsh and Windows Terminal afterwards so the deployed mise config, profile, and `PATH` change take effect.
+
+An existing `$PROFILE` or Terminal `settings.json` is replaced by the managed file; run `mise dot apply --force` if `mise bootstrap` reports the target as a conflict.
