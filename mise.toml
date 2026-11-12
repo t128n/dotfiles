@@ -61,6 +61,16 @@ run = "bun scripts/setup-env.ts"
 description = "Report env defaults that differ from the Windows user environment"
 run = "bun scripts/setup-env.ts --check"
 
+[tasks.apps]
+description = "Install the apps declared for this platform"
+run = 'sh scripts/apps/apply.sh'
+run_windows = 'pwsh -NoProfile -File scripts/apps/apply.ps1'
+
+[tasks."apps:check"]
+description = "Report declared apps that are not installed"
+run = 'sh scripts/apps/apply.sh --check'
+run_windows = 'pwsh -NoProfile -File scripts/apps/apply.ps1 -Check'
+
 [tasks."gitconfig:identity"]
 description = "Open ~/.gitconfig-identity in your editor"
 run = "${EDITOR:-vi} ~/.gitconfig-identity"

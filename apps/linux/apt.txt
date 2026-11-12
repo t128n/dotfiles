@@ -1,0 +1,13 @@
+# Machine-level packages for apt (Debian, Ubuntu, and derivatives).
+#
+# One native package name per line. Blank lines and # comments are ignored.
+# Dev CLIs and language runtimes belong in home/dot-config/mise/config.toml.
+#
+# Apply: mise run apps
+# Check: mise run apps:check
+#
+# For dnf or pacman, create apps/linux/dnf.txt or apps/linux/pacman.txt with
+# the same format.
+
+# build-essential
+# libssl-dev

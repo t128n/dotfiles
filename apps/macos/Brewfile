@@ -1,0 +1,18 @@
+# Apps, fonts, and machine-level packages for macOS.
+#
+# Dev CLIs and language runtimes belong in home/dot-config/mise/config.toml.
+# Inventory this machine: brew bundle dump --force --file apps/macos/Brewfile
+# Apply: mise run apps
+# Check: mise run apps:check
+
+# tap "homebrew/cask-fonts"
+
+# Casks install GUI apps and fonts.
+# cask "ghostty"
+# cask "font-jetbrains-mono-nerd-font"
+
+# mas installs App Store apps; it needs mas from mise [tools].
+# mas "Xcode", id: 497799835
+
+# Formulae are for libraries and machine-wide dependencies, not dev CLIs.
+# brew "openssl@3"

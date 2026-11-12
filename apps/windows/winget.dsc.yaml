@@ -1,0 +1,105 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+# WinGet Configuration file (DSC schema 0.2).
+#
+# Apply: mise run apps
+# Check: mise run apps:check
+#
+# Inventory this machine with:
+#   winget configure export --all -o <file>
+# then keep only the entries you intentionally manage. See apps/AGENTS.md.
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # Core tools
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: powershell
+      directives:
+        description: Install PowerShell 7
+      settings:
+        id: Microsoft.PowerShell
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: git
+      directives:
+        description: Install Git
+      settings:
+        id: Git.Git
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: windows-terminal
+      directives:
+        description: Install Windows Terminal
+      settings:
+        id: Microsoft.WindowsTerminal
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: coreutils
+      directives:
+        description: Install Coreutils for Windows
+        securityContext: elevated
+      settings:
+        id: Microsoft.Coreutils
+        source: winget
+
+    # Apps
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: zed
+      directives:
+        description: Install Zed
+      settings:
+        id: ZedIndustries.Zed
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: helium
+      directives:
+        description: Install Helium browser
+      settings:
+        id: ImputNet.Helium
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: sharex
+      directives:
+        description: Install ShareX
+      settings:
+        id: ShareX.ShareX
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: espanso
+      directives:
+        description: Install Espanso
+      settings:
+        id: Espanso.Espanso
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: nanazip
+      directives:
+        description: Install NanaZip
+      settings:
+        id: M2Team.NanaZip
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: mremoteng
+      directives:
+        description: Install mRemoteNG
+        securityContext: elevated
+      settings:
+        id: mRemoteNG.mRemoteNG
+        source: winget
+
+    # Machine settings. Developer Mode must already be enabled before
+    # `mise bootstrap` so it can create symlinks; this entry repairs drift.
+    # - resource: Microsoft.Windows.Settings/WindowsSettings
+    #   id: developerMode
+    #   directives:
+    #     description: Enable Developer Mode
+    #     securityContext: elevated
+    #   settings:
+    #     DeveloperMode: true
