@@ -54,8 +54,50 @@ Set-Location ~/Workspace/Repos/github.com/t128n/dotfiles
 mise trust
 mise bootstrap
 mise run workspace
+mise run env
 ```
 
-`mise bootstrap` installs the tools from `home/dot-config/mise/config.toml` and deploys every `[dotfiles]` entry, including your pwsh profile (`$PROFILE`) and Windows Terminal `settings.json`. `mise run workspace` creates `~/Workspace/{Repos,Scratch,Bin}` and adds `~/Workspace/Bin` to your user `PATH`. Restart pwsh and Windows Terminal afterwards so the deployed mise config, profile, and `PATH` change take effect.
+`mise bootstrap` installs the tools from `home/dot-config/mise/config.toml` and deploys every `[dotfiles]` entry, including your pwsh profile (`$PROFILE`) and Windows Terminal `settings.json`. `mise run workspace` creates `~/Workspace/{Repos,Resources,Scratch}`, ensures `~/.local/bin`, and puts it on your user `PATH`. `mise run env` copies the `[env]` values — `HOME` plus the Go, Rust, and Bun data and cache directories — into your user environment so editors and GUI apps resolve the same paths as an activated shell; re-run it after changing `[env]`, and use `mise run env:check` to detect drift. Put personal executables in `~/.local/bin`; `Resources` holds persistent reference material and `Scratch` is disposable. Restart pwsh, Windows Terminal, and any editors afterwards so the deployed mise config, profile, environment, and `PATH` changes take effect.
 
 An existing `$PROFILE` or Terminal `settings.json` is replaced by the managed file; run `mise dot apply --force` if `mise bootstrap` reports the target as a conflict.
+
+## Apps
+
+Machine-level apps and system dependencies are declared per platform under `apps/`:
+
+| Platform | Declaration | Applied with |
+| --- | --- | --- |
+| Windows | `apps/windows/winget.dsc.yaml` | `winget configure` |
+| macOS | `apps/macos/Brewfile` | `brew bundle` |
+| Linux | `apps/linux/<manager>.txt` | `apt-get`, `dnf`, or `pacman` |
+
+Install them after `mise bootstrap`:
+
+```sh
+mise run apps
+mise run apps:check
+```
+
+`mise run apps` installs what is missing and is safe to repeat; `mise run apps:check` reports missing apps without changing the machine. The declarations cover GUI apps, fonts, and machine-level libraries — CLI tools and language runtimes stay in `home/dot-config/mise/config.toml`. The app files are not deployed to `$HOME` and are not installed by `mise bootstrap`. WinGet can prompt for elevation once per run, macOS needs Homebrew, and Linux needs one of the supported package managers. See `apps/AGENTS.md` for inventory commands and conventions.
+
+## Project templates
+
+Templates live in `templates/` and are deployed to `~/.local/share/t128n-dotfiles-templates`. Create a project with:
+
+```sh
+mise run new minimal ~/Workspace/Scratch/my-app
+mise run new rea-playground ~/Workspace/Scratch/rea-demo
+```
+
+The `minimal` template prompts for a project name and slug. `rea-playground` creates an isolated reverse-engineering workspace with a project-local `mise.toml` and OpenCode REA MCP server; creation also runs `mise trust` and `mise install`. Each template is a Copier template: `templates/<name>/copier.yml` plus `templates/<name>/template/`. Files ending in `.jinja` are rendered; other files are copied verbatim. See `templates/AGENTS.md` when adding a template.
+
+## Cleanup
+
+`mise run clean` runs the system-state items for the current OS and reports drift; add `--apply` to bring the machine to the declared state:
+
+```sh
+mise run clean
+mise run clean --apply
+```
+
+Items live in `scripts/cleanup/items/<os>/`. Each is a small idempotent resource exposing `test`, `set`, and `unset`: removal items delete unwanted programs and configs, while setting items enforce a preference such as the taskbar layout. The scripts are deployed to `~/.local/share/t128n-dotfiles/scripts/cleanup`, and removal is permanent, so the dry run is the safety check. Settings change immediately; shell items restart Explorer. A project-level `clean` task shadows the global one.
