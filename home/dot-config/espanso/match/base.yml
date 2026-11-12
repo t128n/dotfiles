@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  # German Umlauts & Eszett (optimized for US/ANSI keyboards)
+  - trigger: ":ae"
+    replace: "ä"
+  - trigger: ":Ae"
+    replace: "Ä"
+  - trigger: ":oe"
+    replace: "ö"
+  - trigger: ":Oe"
+    replace: "Ö"
+  - trigger: ":ue"
+    replace: "ü"
+  - trigger: ":Ue"
+    replace: "Ü"
+  - trigger: ":sz"
+    replace: "ß"
+  - trigger: ":Sz"
+    replace: "ẞ"
