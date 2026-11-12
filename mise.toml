@@ -2,6 +2,7 @@ min_version = "2026.11.0"
 
 [settings]
 dotfiles.root = "home"
+npm.package_manager = "bun"
 
 [dotfiles]
 "~/.config/mise/config.toml" = { source = "home/dot-config/mise/config.toml", mode = "symlink" }
@@ -43,6 +44,14 @@ run = ["mise doctor", "mise dot status"]
 [tasks.workspace]
 description = "Create the ~/Workspace layout and add ~/Workspace/Bin to the user PATH"
 run = "bun scripts/setup-workspace.ts"
+
+[tasks.env]
+description = "Mirror the mise [env] defaults into the Windows user environment"
+run = "bun scripts/setup-env.ts"
+
+[tasks."env:check"]
+description = "Report env defaults that differ from the Windows user environment"
+run = "bun scripts/setup-env.ts --check"
 
 [tasks."gitconfig:identity"]
 description = "Open ~/.gitconfig-identity in your editor"

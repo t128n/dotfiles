@@ -1,3 +1,24 @@
+[settings]
+npm.package_manager = "bun"
+
+# Tool data and caches live under the XDG-style directories below ~/.local and
+# ~/.cache, not at the home root. HOME is unset on Windows, so define it from
+# USERPROFILE there; POSIX keeps the HOME mise started with. `~` is not
+# expanded in [env] values, so the resolved path is stored instead.
+# `mise run env` mirrors these into the Windows user environment so editors and
+# GUI apps see the same paths as an activated shell.
+[env]
+HOME = '{{ get_env(name="USERPROFILE", default=get_env(name="HOME", default="")) }}'
+GOPATH = "{{env.HOME}}/.local/share/go"
+GOMODCACHE = "{{env.HOME}}/.cache/go/mod"
+GOCACHE = "{{env.HOME}}/.cache/go/build"
+GOBIN = "{{env.HOME}}/.local/bin"
+CARGO_HOME = "{{env.HOME}}/.local/share/cargo"
+RUSTUP_HOME = "{{env.HOME}}/.local/share/rustup"
+BUN_INSTALL = "{{env.HOME}}/.local/share/bun"
+BUN_INSTALL_CACHE_DIR = "{{env.HOME}}/.cache/bun"
+_.path = ["~/.local/share/cargo/bin"]
+
 [tools]
 bun = "1.4"
 node = "lts"
@@ -8,6 +29,7 @@ opencode = "latest"
 
 fd = "latest"
 fzf = "latest"
+go = "1.27"
 gh = "latest"
 ghq = "latest"
 jq = "latest"
