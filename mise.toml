@@ -4,8 +4,12 @@ min_version = "2026.11.0"
 dotfiles.root = "home"
 npm.package_manager = "bun"
 
+[tools]
+starship = "latest"
+
 [dotfiles]
 "~/.config/mise/config.toml" = { source = "home/dot-config/mise/config.toml", mode = "symlink" }
+"~/.config/starship.toml" = { source = "home/dot-config/starship.toml", mode = "symlink" }
 "~/.config/opencode" = { source = "home/dot-config/opencode", mode = "symlink-each" }
 "~/.gitconfig" = { source = "home/dot-gitconfig", mode = "symlink" }
 "~/.gitconfig-identity" = { source = "home/dot-gitconfig-identity", mode = "copy", create_if_missing = true }

@@ -1,0 +1,70 @@
+# Starship Prompt Configuration
+# Oxocarbon Dark Theme sync (cyan #3ddbd9 · purple #be95ff · red #ee5396 · yellow #ffe97b · blue #33b1ff · text #dde1e6 · dim #525252)
+
+scan_timeout = 150
+command_timeout = 500
+add_newline = true
+format = """$directory$git_branch$git_state$git_status$nodejs$rust$golang$python$cmd_duration$character"""
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+repo_root_style = "bold #3ddbd9"
+style = "bold #dde1e6"
+format = "[$path]($style)"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)"
+
+[git_branch]
+symbol = ""
+style = "bold #be95ff"
+format = " on [$symbol$branch]($style)"
+
+[git_state]
+format = ' \([$state( $progress_current/$progress_total)]($style)\)'
+style = "bold #78a9ff"
+
+[git_status]
+style = "bold #ee5396"
+format = '([ \[$all_status$ahead_behind\]]($style))'
+conflicted = "="
+ahead = "^$count"
+behind = "v$count"
+diverged = "^$ahead_count v$behind_count"
+untracked = "?$count"
+stashed = "$"
+modified = "!$count"
+staged = "+$count"
+renamed = "r"
+deleted = "x$count"
+
+[nodejs]
+symbol = "js "
+style = "bold #33b1ff"
+format = " via [$symbol($version)]($style)"
+
+[rust]
+symbol = "rs "
+style = "bold #33b1ff"
+format = " via [$symbol($version)]($style)"
+
+[golang]
+symbol = "go "
+style = "bold #33b1ff"
+format = " via [$symbol($version)]($style)"
+
+[python]
+symbol = "py "
+style = "bold #33b1ff"
+format = " via [$symbol($version)]($style)"
+
+[cmd_duration]
+min_time = 2_000
+style = "bold #525252"
+format = " [took $duration]($style)"
+
+[character]
+success_symbol = " [::](bold #3ddbd9)"
+error_symbol = " [::](bold #ee5396)"
+
+[package]
+disabled = true
