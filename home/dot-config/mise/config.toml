@@ -27,6 +27,7 @@ uv = "0.13"
 
 opencode = "latest"
 "github:anomalyco/hex" = "latest"
+"github:t128n/reviewbot" = "latest"
 
 fd = "latest"
 fzf = "latest"
