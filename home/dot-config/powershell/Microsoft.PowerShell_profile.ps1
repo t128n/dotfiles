@@ -1,13 +1,16 @@
 # Managed by t128n/dotfiles: home/dot-config/powershell/Microsoft.PowerShell_profile.ps1
 
+# Unicode & UTF-8 Fidelity
+# Explicit no-BOM; must run before mise activation so hook-env output is decoded as UTF-8.
+try {
+    [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+} catch {}
+$OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+
 # mise Activation (tool shims, env vars, [shell_alias] definitions)
 if (Get-Command mise -ErrorAction SilentlyContinue) {
     (&mise activate pwsh) | Out-String | Invoke-Expression
 }
-
-# Unicode & UTF-8 Fidelity
-[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-$OutputEncoding           = [System.Text.UTF8Encoding]::new()
 
 # Performance & Noise Reduction
 $env:POWERSHELL_TELEMETRY_OPTOUT = '1'
