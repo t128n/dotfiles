@@ -15,6 +15,9 @@ Build the smallest correct solution using established project conventions.
 
 Use subagents when independent work benefits from parallelism. Avoid unnecessary plans, documentation, abstractions, and orchestration.
 
+When composing any external communication on my behalf, load
+and follow the `communicate` skill before drafting or sending.
+
 ## Tooling
 
 Use `mise` to manage tools and runtimes.
