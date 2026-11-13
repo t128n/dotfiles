@@ -29,7 +29,10 @@ Prefer:
 - `gh`, `ghq` — GitHub operations and repository management.
 - `bun`, `node`, `uv` — JavaScript and Python tooling, following project conventions.
 - `gitleaks`, `semgrep`, `trivy` — Security checks when relevant.
-- `browse` — Browser automation and page fetching through the OpenCode browse MCP server (`tools.browse.*`). The built-in `browser` and `webfetch` tools are disabled; do not use a standalone browser CLI.
+- `webfetch` — One static document whose URL is already known.
+- `browse` — Everything else, through the OpenCode browse MCP server (`tools.browse.*`). The built-in `browser` tool is disabled; do not use a standalone browser CLI.
 - `agent-desktop` — Desktop interaction.
 - `webreel` — Capture browser interactions when visual evidence is useful.
 - `opensrc` — Inspect dependency source when documentation or types are insufficient.
+
+If `webfetch` returns an empty shell or a challenge, switch to `browse` once instead of retrying it.

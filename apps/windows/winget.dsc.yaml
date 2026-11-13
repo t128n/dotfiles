@@ -94,6 +94,14 @@ properties:
         id: mRemoteNG.mRemoteNG
         source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: obsidian
+      directives:
+        description: Install Obsidian
+      settings:
+        id: Obsidian.Obsidian
+        source: winget
+
     # Machine settings. Developer Mode must already be enabled before
     # `mise bootstrap` so it can create symlinks; this entry repairs drift.
     # - resource: Microsoft.Windows.Settings/WindowsSettings

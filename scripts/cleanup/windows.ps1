@@ -99,7 +99,10 @@ function Invoke-ElevatedCommand([string]$Command) {
     }
 
     $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($Command))
-    $process = Start-Process -FilePath 'pwsh' -Verb RunAs -Wait -PassThru -ArgumentList @(
+    # Elevate Windows PowerShell: a Store-installed pwsh lives under WindowsApps,
+    # which Start-Process cannot launch with -Verb RunAs.
+    $powershell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+    $process = Start-Process -FilePath $powershell -Verb RunAs -Wait -PassThru -ArgumentList @(
         '-NoProfile', '-EncodedCommand', $encoded)
     if ($process.ExitCode -ne 0) {
         throw "elevated command failed (exit $($process.ExitCode))"

@@ -9,7 +9,7 @@ extension.
 |---|---|---|---|---|
 | `ghmbeldphafepmbegfdlkpapadhbakde` | Proton Pass | 1.43.0 | yes | yes |
 | `gbmdgpbipfallnflgajpaliibnhdgobh` | JSON Viewer (legacy) | — | **no** | yes, stale |
-| `mfnicocicmmlkpjnaffgihfjhdgjkdjg` | browse (agent-browser) | 0.0.15 | yes | no |
+| `mfnicocicmmlkpjnaffgihfjhdgjkdjg` | browse (agent-browser) | 0.0.16 | yes | no |
 
 The JSON Viewer entry is a leftover: the extension is no longer installable, so the policy errors and
 nothing is installed. Remove it.

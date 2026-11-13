@@ -45,6 +45,8 @@ trivy = "latest"
 
 "npm:agent-desktop" = "latest"
 # Official browse MCP server; mise's low-download check needs explicit approval.
+# mise owns the runtime: do not also run `browse install`, which adds a native
+# binary whose build ID differs from the npm package's and fights over the relay.
 "npm:@opencode/browse" = { version = "latest", allow_low_downloads = true }
 "npm:webreel" = "latest"
 "npm:opensrc" = "latest"
