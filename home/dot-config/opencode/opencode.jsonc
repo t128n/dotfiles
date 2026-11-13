@@ -31,6 +31,10 @@
     { "action": "external_directory", "resource": "*", "effect": "ask" },
     { "action": "external_directory", "resource": "~/Workspace/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/.opencode/plan/*", "effect": "allow" },
+    // Skill instructions and their references/ scripts are trusted assets
+    // loaded by the skill tool; never prompt to read them.
+    { "action": "external_directory", "resource": "~/.agents/skills/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.config/opencode/skills/*", "effect": "allow" },
     // Temporary directories on Windows, Linux, and macOS.
     { "action": "external_directory", "resource": "~/AppData/Local/Temp/*", "effect": "allow" },
     { "action": "external_directory", "resource": "/tmp/*", "effect": "allow" },
