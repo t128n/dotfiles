@@ -5,7 +5,8 @@
 # the machine policy Windows reapplies at every sign-in, which is what this item
 # maintains. Changes take effect at the next sign-in.
 #
-# Helium owns the web protocols and markup documents; Zed owns text and code.
+# Helium owns the web protocols and markup documents; NanaZip owns archives;
+# Zed owns text and code.
 
 $AssociationsPath = Join-Path $env:ProgramData 't128n\DefaultAssociations.xml'
 $PolicyKey = 'HKLM:\Software\Policies\Microsoft\Windows\System'
@@ -25,6 +26,17 @@ $TextExtensions = @(
 # The browser owns the web protocols and the documents it renders.
 $BrowserIdentifiers = @('http', 'https', '.htm', '.html')
 
+# NanaZip opens every archive format it registers. Disk images (.iso, .vhd,
+# .wim, ...) stay with Windows so mounting and attaching keep working.
+$ArchiveExtensions = @(
+    '.001', '.7z', '.arj', '.b64', '.br', '.bz2', '.bzip2', '.cab', '.cb7',
+    '.cbr', '.cbz', '.cpio', '.deb', '.gz', '.gzip', '.lha', '.lz', '.lz4',
+    '.lz5', '.lzh', '.lzma', '.lzma2', '.nupkg', '.rar', '.rpm', '.tar',
+    '.taz', '.tbz', '.tbz2', '.tgz', '.tlz', '.tlz4', '.tlz5', '.tpz', '.txz',
+    '.tz', '.tzst', '.tzstd', '.xar', '.xz', '.zip', '.zipx', '.z', '.zst',
+    '.zstd'
+)
+
 # Helium registers its ProgId with an install-specific suffix, so read it from
 # the browser registration instead of hard-coding it.
 function Get-HeliumProgId {
@@ -38,8 +50,22 @@ function Get-HeliumProgId {
     throw 'Helium is not registered; install it with mise run apps'
 }
 
+# NanaZip is a packaged app, so Windows generates its ProgId from the package
+# identity instead of letting the vendor name it. Resolve the AppX ProgId that
+# belongs to the NanaZip package rather than hard-coding the generated value.
+function Get-NanaZipProgId {
+    foreach ($class in Get-ChildItem -LiteralPath 'HKCU:\Software\Classes' -ErrorAction SilentlyContinue |
+            Where-Object { $_.PSChildName -like 'AppX*' }) {
+        $application = Join-Path $class.PSPath 'Application'
+        $model = (Get-ItemProperty -Path $application -Name AppUserModelID -ErrorAction SilentlyContinue).AppUserModelID
+        if ($model -like '40174MouriNaruto.NanaZip_*') { return $class.PSChildName }
+    }
+    throw 'NanaZip is not registered; install it with mise run apps'
+}
+
 function New-AssociationsXml {
     $helium = Get-HeliumProgId
+    $nanazip = Get-NanaZipProgId
     $lines = @(
         '<?xml version="1.0" encoding="UTF-8"?>'
         '<DefaultAssociations>'
@@ -47,6 +73,10 @@ function New-AssociationsXml {
 
     foreach ($identifier in $BrowserIdentifiers) {
         $lines += "  <Association Identifier=`"$identifier`" ProgId=`"$helium`" ApplicationName=`"Helium`" />"
+    }
+
+    foreach ($extension in $ArchiveExtensions) {
+        $lines += "  <Association Identifier=`"$extension`" ProgId=`"$nanazip`" ApplicationName=`"NanaZip`" />"
     }
 
     $missing = @()
