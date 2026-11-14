@@ -53,6 +53,7 @@ trivy = "latest"
 "npm:opensrc" = "latest"
 "npm:skills" = "latest"
 "npm:emulate" = "latest"
+"npm:@oxide/skepsis" = "latest"
 
 [tasks.new]
 description = "Create a project from a template"

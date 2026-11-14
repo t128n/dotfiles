@@ -24,9 +24,12 @@ The text above names the files or folders to review. If it names none, ask which
 - **Clarity:** steps a reader could not follow, undefined terms, missing prerequisites, rules given without a reason.
 - **Language pairs:** if a German or English counterpart exists, compare headings, content and examples and report where the two have drifted apart, and which one looks newer.
 
-## Optional English baseline
+## Optional baselines
 
-If the `writing-guidelines` skill from vercel-labs/agent-skills is installed, you may also run it on the English documents as a general plain-writing baseline. Report its findings under a separate heading. The project's style guide wins wherever the two disagree, and that skill is not applied to German documents.
+These add a general plain-writing check on top of the project's style guide. Report their findings under a separate heading. The project's style guide and glossary win wherever they disagree with a baseline.
+
+- **English documents:** if the `writing-guidelines` skill from vercel-labs/agent-skills is installed, you may run it. Never apply it to German documents.
+- **German documents:** if the `schreibrichtlinien` skill is installed, load it and apply its rules. Never apply it to English documents.
 
 ## Output
 
