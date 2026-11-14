@@ -52,6 +52,7 @@ trivy = "latest"
 "npm:webreel" = "latest"
 "npm:opensrc" = "latest"
 "npm:skills" = "latest"
+"npm:emulate" = "latest"
 
 [tasks.new]
 description = "Create a project from a template"
