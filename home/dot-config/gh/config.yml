@@ -1,0 +1,26 @@
+# ==============================================================================
+# GitHub CLI Configuration
+# ==============================================================================
+
+# Protocol to use when performing Git operations (ssh or https)
+git_protocol: https
+
+# Default editor for pull requests, issues, and gist comments
+editor: zed --wait
+
+# Interactive prompt mode (enabled or disabled)
+prompt: enabled
+
+# Pager to use for CLI output (empty string disables pager piping)
+pager: ""
+
+# CLI command aliases
+aliases:
+  co: pr checkout
+  pv: pr view
+  prs: pr list --author "@me"
+  checks: pr checks
+  prw: '!pr="$1"; [ -n "$pr" ] || { echo "usage: gh prw <pr-number|url>" >&2; exit 1; }; slug=$(git remote get-url origin 2>/dev/null | sed -E "s#^[a-zA-Z]+://([^/@]+@)?##; s#^[^@]+@##; s#:([0-9]+)?/#/#; s#:#/#; s#\\.git\$##"); branch=$(gh pr view "$pr" --json headRefName -q .headRefName 2>/dev/null | tr "/" "-"); [ -z "$branch" ] && branch="pr-$pr"; dir="${XDG_DATA_HOME:-$HOME/.local/share}/gh/worktrees/$slug/$branch"; if [ ! -d "$dir" ]; then mkdir -p "$(dirname "$dir")" && git worktree add --detach "$dir"; fi && cd "$dir" && gh pr checkout "$pr" && printf "%s\n" "$dir"'
+
+# Configuration version
+version: "1"

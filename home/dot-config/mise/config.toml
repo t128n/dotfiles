@@ -32,7 +32,8 @@ node = "lts"
 uv = "0.13"
 "pypi:copier" = "latest"
 
-opencode = "latest"
+# Pin major version 2 because "latest" still resolves to v1.x on GitHub releases.
+"github:anomalyco/opencode" = "2"
 "github:anomalyco/hex" = "latest"
 "github:t128n/reviewbot" = { version = "latest", prerelease = true }
 
