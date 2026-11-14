@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 2880" width="2880" height="2880" style="overflow:hidden;display:block">
+  <defs>
+    <!-- 48px square atomic grid (2 cols x 1 row) -->
+    <pattern id="cellGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#282828" stroke-width="1"/>
+    </pattern>
+    <style>
+      text {
+        font-family: 'Cascadia Code', 'Cascadia Mono', 'Consolas', monospace;
+        font-size: 36px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+
+  <rect width="2880" height="2880" fill="#1E1E1E"/>
+  <rect width="2880" height="2880" fill="url(#cellGrid)"/>
+
+  <g id="opentui-bg">
+    <rect x="1104" y="1248" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="1248" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1536" y="1248" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1680" y="1248" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1104" y="1296" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="1296" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1584" y="1296" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1728" y="1296" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1104" y="1344" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="1344" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1584" y="1344" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1728" y="1344" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1104" y="1392" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="1392" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1584" y="1392" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1728" y="1392" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1104" y="1440" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="1440" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1584" y="1440" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1728" y="1440" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1104" y="1488" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="1488" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1584" y="1488" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1728" y="1488" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1104" y="1536" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="1536" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1584" y="1536" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1728" y="1536" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1104" y="1584" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="1584" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="1536" y="1584" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="1680" y="1584" width="96" height="48" fill="#4c4c4c"/>
+  </g>
+
+  <g id="opentui-fg">
+    
+  </g>
+</svg>

@@ -5,12 +5,44 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-const COLS = 160;
-const ROWS = 45;
 const CELL_W = 24;
 const CELL_H = 48;
-const WIDTH = COLS * CELL_W; // 3840
-const HEIGHT = ROWS * CELL_H; // 2160
+
+interface WallpaperSpec {
+  name: "desktop" | "mobile" | "ipad";
+  cols: number;
+  rows: number;
+  showHotkeys: boolean;
+  svgName: string;
+  pngName: string;
+}
+
+const WALLPAPERS: WallpaperSpec[] = [
+  {
+    name: "desktop",
+    cols: 160,
+    rows: 45,
+    showHotkeys: true,
+    svgName: "Wallpaper.svg",
+    pngName: "Wallpaper.png",
+  },
+  {
+    name: "mobile",
+    cols: 90,
+    rows: 80,
+    showHotkeys: false,
+    svgName: "Wallpaper-mobile.svg",
+    pngName: "Wallpaper-mobile.png",
+  },
+  {
+    name: "ipad",
+    cols: 120,
+    rows: 60,
+    showHotkeys: false,
+    svgName: "Wallpaper-ipad.svg",
+    pngName: "Wallpaper-ipad.png",
+  },
+];
 
 const BG_CANVAS = "#1E1E1E";
 const GRID_LINE = "#282828";
@@ -114,98 +146,101 @@ function addBracketPair(
   );
 }
 
-async function buildOpenTuiFrame() {
-  const setup = await createTestRenderer({ width: COLS, height: ROWS });
+async function buildOpenTuiFrame(spec: WallpaperSpec) {
+  const setup = await createTestRenderer({ width: spec.cols, height: spec.rows });
   const { renderer } = setup;
 
   try {
     const root = new BoxRenderable(renderer, {
       position: "relative",
-      width: COLS,
-      height: ROWS,
+      width: spec.cols,
+      height: spec.rows,
       backgroundColor: BG_CANVAS,
     });
 
     // Centerpiece: cell-constructed [[   ]] (8 rows tall, 4-square-unit center void)
-    // Cols 66..93 (center at col 80)
-    const topRow = 18;
-    addBracketPair(root, renderer, 66, topRow, false, BRACKET_UPPER, BRACKET_LOWER); // outer [
-    addBracketPair(root, renderer, 72, topRow, false, BRACKET_UPPER, BRACKET_LOWER); // inner [
-    addBracketPair(root, renderer, 84, topRow, true, BRACKET_UPPER, BRACKET_LOWER); // inner ]
-    addBracketPair(root, renderer, 90, topRow, true, BRACKET_UPPER, BRACKET_LOWER); // outer ]
+    const centerCol = Math.floor(spec.cols / 2);
+    const topRow = Math.floor((spec.rows - 8) / 2);
+    addBracketPair(root, renderer, centerCol - 14, topRow, false, BRACKET_UPPER, BRACKET_LOWER); // outer [
+    addBracketPair(root, renderer, centerCol - 8, topRow, false, BRACKET_UPPER, BRACKET_LOWER); // inner [
+    addBracketPair(root, renderer, centerCol + 4, topRow, true, BRACKET_UPPER, BRACKET_LOWER); // inner ]
+    addBracketPair(root, renderer, centerCol + 10, topRow, true, BRACKET_UPPER, BRACKET_LOWER); // outer ]
 
-    // Bottom-left grid-snapped Hotkeys panel (cols 8..49 = 42 cols; rows 32..40 = 9 rows, 4 rows from bottom)
-    const panel = new BoxRenderable(renderer, {
-      position: "absolute",
-      left: 8,
-      top: 32,
-      width: 42,
-      height: 9,
-      backgroundColor: PANEL_BG,
-      border: true,
-      borderStyle: "single",
-      borderColor: PANEL_BORDER,
-      flexDirection: "column",
-      paddingLeft: 1,
-      paddingRight: 1,
-    });
+    if (spec.showHotkeys) {
+      // Bottom-left grid-snapped Hotkeys panel (cols 8..49 = 42 cols; rows 32..40 = 9 rows, 4 rows from bottom)
+      const panel = new BoxRenderable(renderer, {
+        position: "absolute",
+        left: 8,
+        top: 32,
+        width: 42,
+        height: 9,
+        backgroundColor: PANEL_BG,
+        border: true,
+        borderStyle: "single",
+        borderColor: PANEL_BORDER,
+        flexDirection: "column",
+        paddingLeft: 1,
+        paddingRight: 1,
+      });
 
-    // Header row
-    panel.add(
-      new TextRenderable(renderer, {
-        content: "> HOTKEYS",
-        fg: HEADER_FG,
-        height: 1,
-      })
-    );
-
-    // Shortcut rows (2 rows per item: 1 spacer + 1 content row)
-    for (const item of SHORTCUTS) {
+      // Header row
       panel.add(
-        new BoxRenderable(renderer, {
-          width: "100%",
-          height: 1,
-          border: ["top"],
-          borderStyle: "single",
-          borderColor: "#282828",
-        })
-      );
-
-      const row = new BoxRenderable(renderer, {
-        width: "100%",
-        height: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      });
-
-      row.add(
         new TextRenderable(renderer, {
-          content: item.label,
-          fg: LABEL_FG,
+          content: "> HOTKEYS",
+          fg: HEADER_FG,
+          height: 1,
         })
       );
 
-      const keysBox = new BoxRenderable(renderer, {
-        flexDirection: "row",
-        gap: 1,
-      });
-
-      for (const k of item.keys) {
-        keysBox.add(
-          new TextRenderable(renderer, {
-            content: ` ${k} `,
-            fg: KBD_FG,
-            bg: KBD_BG,
+      // Shortcut rows (2 rows per item: 1 spacer + 1 content row)
+      for (const item of SHORTCUTS) {
+        panel.add(
+          new BoxRenderable(renderer, {
+            width: "100%",
+            height: 1,
+            border: ["top"],
+            borderStyle: "single",
+            borderColor: "#282828",
           })
         );
+
+        const row = new BoxRenderable(renderer, {
+          width: "100%",
+          height: 1,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        });
+
+        row.add(
+          new TextRenderable(renderer, {
+            content: item.label,
+            fg: LABEL_FG,
+          })
+        );
+
+        const keysBox = new BoxRenderable(renderer, {
+          flexDirection: "row",
+          gap: 1,
+        });
+
+        for (const k of item.keys) {
+          keysBox.add(
+            new TextRenderable(renderer, {
+              content: ` ${k} `,
+              fg: KBD_FG,
+              bg: KBD_BG,
+            })
+          );
+        }
+
+        row.add(keysBox);
+        panel.add(row);
       }
 
-      row.add(keysBox);
-      panel.add(row);
+      root.add(panel);
     }
 
-    root.add(panel);
     renderer.root.add(root);
 
     await setup.renderOnce();
@@ -215,7 +250,12 @@ async function buildOpenTuiFrame() {
   }
 }
 
-function renderSvgFromSpans(frame: Awaited<ReturnType<typeof buildOpenTuiFrame>>): string {
+function renderSvgFromSpans(
+  frame: Awaited<ReturnType<typeof buildOpenTuiFrame>>,
+  spec: WallpaperSpec
+): string {
+  const width = spec.cols * CELL_W;
+  const height = spec.rows * CELL_H;
   const bgRects: string[] = [];
   const textEls: string[] = [];
 
@@ -269,12 +309,12 @@ function renderSvgFromSpans(frame: Awaited<ReturnType<typeof buildOpenTuiFrame>>
     }
   }
 
-  // 2px Obsidian purple accent stripe down the left edge of the OpenTUI Hotkeys panel (col 8, rows 32..41)
-  const panelX = 8 * CELL_W;
-  const panelY = 32 * CELL_H;
-  const panelH = 9 * CELL_H;
+  // 4px Obsidian purple accent stripe down the left edge of the OpenTUI Hotkeys panel (col 8, rows 32..41)
+  const accentStripe = spec.showHotkeys
+    ? `  <!-- 4px Obsidian purple accent stripe on left edge of Hotkeys panel -->\n  <rect x="${8 * CELL_W}" y="${32 * CELL_H}" width="4" height="${9 * CELL_H}" fill="${ACCENT_PURPLE}"/>\n`
+    : "";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${WIDTH} ${HEIGHT}" width="${WIDTH}" height="${HEIGHT}" style="overflow:hidden;display:block">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="overflow:hidden;display:block">
   <defs>
     <!-- 48px square atomic grid (2 cols x 1 row) -->
     <pattern id="cellGrid" width="48" height="48" patternUnits="userSpaceOnUse">
@@ -289,24 +329,21 @@ function renderSvgFromSpans(frame: Awaited<ReturnType<typeof buildOpenTuiFrame>>
     </style>
   </defs>
 
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="${BG_CANVAS}"/>
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#cellGrid)"/>
+  <rect width="${width}" height="${height}" fill="${BG_CANVAS}"/>
+  <rect width="${width}" height="${height}" fill="url(#cellGrid)"/>
 
   <g id="opentui-bg">
     ${bgRects.join("\n    ")}
   </g>
 
-  <!-- 4px Obsidian purple accent stripe on left edge of Hotkeys panel -->
-  <rect x="${panelX}" y="${panelY}" width="4" height="${panelH}" fill="${ACCENT_PURPLE}"/>
-
-  <g id="opentui-fg">
+${accentStripe}  <g id="opentui-fg">
     ${textEls.join("\n    ")}
   </g>
 </svg>
 `;
 }
 
-function exportPngWithEdge(svgPath: string, pngPath: string) {
+function exportPngWithEdge(svgPath: string, pngPath: string, width: number, height: number) {
   const edgeExe = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
   const userDataDir = join(tmpdir(), `edge-opentui-${Date.now()}`);
   const url = pathToFileURL(svgPath).href;
@@ -317,7 +354,7 @@ function exportPngWithEdge(svgPath: string, pngPath: string) {
     `--user-data-dir=${userDataDir}`,
     "--disable-gpu",
     "--force-device-scale-factor=1",
-    `--window-size=${WIDTH},${HEIGHT}`,
+    `--window-size=${width},${height}`,
     `--screenshot=${pngPath}`,
     url,
   ]);
@@ -350,18 +387,27 @@ function printTerminalPreview(frame: Awaited<ReturnType<typeof buildOpenTuiFrame
 }
 
 const isPreview = Bun.argv.includes("--preview");
-const frame = await buildOpenTuiFrame();
+const requestedVariants = WALLPAPERS.filter((w) => Bun.argv.includes(`--${w.name}`));
+const targets = requestedVariants.length > 0 ? requestedVariants : WALLPAPERS;
 
-if (isPreview) {
-  printTerminalPreview(frame);
-} else {
-  const svg = renderSvgFromSpans(frame);
+for (const spec of targets) {
+  const frame = await buildOpenTuiFrame(spec);
+  if (isPreview) {
+    console.log(`=== ${spec.name} (${spec.cols}x${spec.rows}) ===`);
+    printTerminalPreview(frame);
+  } else {
+    const width = spec.cols * CELL_W;
+    const height = spec.rows * CELL_H;
+    const svg = renderSvgFromSpans(frame, spec);
 
-  const svgPath = resolve(import.meta.dir, "Wallpaper.svg");
-  const pngPath = resolve(import.meta.dir, "Wallpaper.png");
+    const svgPath = resolve(import.meta.dir, spec.svgName);
+    const pngPath = resolve(import.meta.dir, spec.pngName);
 
-  writeFileSync(svgPath, svg, "utf8");
-  exportPngWithEdge(svgPath, pngPath);
+    writeFileSync(svgPath, svg, "utf8");
+    exportPngWithEdge(svgPath, pngPath, width, height);
 
-  console.log(`Generated ${svgPath} and ${pngPath} from OpenTUI (${COLS}x${ROWS} cells -> ${WIDTH}x${HEIGHT}px)`);
+    console.log(
+      `Generated ${svgPath} and ${pngPath} from OpenTUI (${spec.cols}x${spec.rows} cells -> ${width}x${height}px)`
+    );
+  }
 }

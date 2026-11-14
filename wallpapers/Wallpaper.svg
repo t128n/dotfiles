@@ -106,7 +106,6 @@
 
   <!-- 4px Obsidian purple accent stripe on left edge of Hotkeys panel -->
   <rect x="192" y="1536" width="4" height="432" fill="#7F6DF2"/>
-
   <g id="opentui-fg">
     <path d="M 204 1584 V 1560 H 216" fill="none" stroke="#333333" stroke-width="1"/>
     <path d="M 216 1560 H 240" fill="none" stroke="#333333" stroke-width="1"/>
