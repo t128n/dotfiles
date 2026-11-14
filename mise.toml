@@ -12,6 +12,9 @@ starship = "latest"
 "~/.config/gh/config.yml" = { source = "home/dot-config/gh/config.yml", mode = "symlink" }
 "~/AppData/Roaming/GitHub CLI/config.yml" = { source = "home/dot-config/gh/config.yml", mode = "symlink" }
 "~/.config/starship.toml" = { source = "home/dot-config/starship.toml", mode = "symlink" }
+"~/.config/ripgrep/config" = { source = "home/dot-config/ripgrep/config", mode = "symlink" }
+"~/.editorconfig" = { source = "home/dot-editorconfig", mode = "symlink" }
+"~/.ignore" = { source = "home/dot-ignore", mode = "symlink" }
 "~/.config/espanso/config/default.yml" = { source = "home/dot-config/espanso/config/default.yml", mode = "symlink" }
 "~/.config/espanso/match/base.yml" = { source = "home/dot-config/espanso/match/base.yml", mode = "symlink" }
 "~/.config/opencode" = { source = "home/dot-config/opencode", mode = "symlink-each", exclude = ["cli.json", "service.json"] }

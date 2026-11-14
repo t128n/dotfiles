@@ -1,0 +1,11 @@
+# Search hidden files/dirs by default (still respects .gitignore / .ignore)
+--hidden
+
+# Follow symlinks
+--follow
+
+# Case-insensitive unless uppercase characters are present
+--smart-case
+
+# Exclude VCS internals even when --hidden is enabled
+--glob=!.git/

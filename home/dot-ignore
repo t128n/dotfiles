@@ -1,0 +1,13 @@
+.git/
+node_modules/
+.venv/
+__pycache__/
+dist/
+build/
+target/
+*.min.js
+*.min.css
+*.lock
+package-lock.json
+bun.lock
+pnpm-lock.yaml
