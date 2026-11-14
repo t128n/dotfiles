@@ -29,10 +29,11 @@ Prefer:
 - `gh`, `ghq` — GitHub operations and repository management.
 - `bun`, `node`, `uv` — JavaScript and Python tooling, following project conventions.
 - `gitleaks`, `semgrep`, `trivy` — Security checks when relevant.
-- `webfetch` — One static document whose URL is already known.
+- `webfetch` — One static document whose URL is already known, when you need the raw page or a non-HTML resource.
+- `defuddle` — Clean Markdown extracted from a known URL's HTML page; it strips navigation and ads. Use it instead of `webfetch` when you want readable article content.
 - `browse` — Everything else, through the OpenCode browse MCP server (`tools.browse.*`). The built-in `browser` tool is disabled; do not use a standalone browser CLI.
 - `agent-desktop` — Desktop interaction.
 - `webreel` — Capture browser interactions when visual evidence is useful.
 - `opensrc` — Inspect dependency source when documentation or types are insufficient.
 
-If `webfetch` returns an empty shell or a challenge, switch to `browse` once instead of retrying it.
+Pick the cheapest tool that works: `webfetch` for raw fetches and non-HTML, `defuddle` for article-like pages, `browse` when the page needs JavaScript, a login, or interaction. If `webfetch` or `defuddle` returns an empty shell or a challenge, switch to `browse` once instead of retrying.
