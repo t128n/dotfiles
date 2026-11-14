@@ -1,12 +1,12 @@
 # Cleanup item: Windows mouse cursor scheme
 #
 # Applies the Bibata-Modern-Classic-Regular cursor scheme from
-# ~/.local/share/t128n-dotfiles-cursor and reloads the system cursors.
+# ~/.local/share/t128n-dotfiles/cursors and reloads the system cursors.
 
 $CursorsKey = 'HKCU:\Control Panel\Cursors'
 $SchemesKey = 'HKCU:\Control Panel\Cursors\Schemes'
 $SchemeName = 'Bibata-Modern-Classic-Regular'
-$CursorDir = Join-Path $env:USERPROFILE '.local\share\t128n-dotfiles-cursor\Bibata-Modern-Classic-Regular'
+$CursorDir = Join-Path $env:USERPROFILE '.local\share\t128n-dotfiles\cursors\Bibata-Modern-Classic-Regular'
 
 $CursorMap = [ordered]@{
     Arrow         = 'Pointer.cur'

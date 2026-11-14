@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "changeSystem": {
+      "value": false
+    },
+    "changeApps": {
+      "value": true
+    },
+    "scheduleMode": {
+      "value": "FixedHours"
+    },
+    "lightTime": {
+      "value": 360
+    },
+    "darkTime": {
+      "value": 1080
+    },
+    "sunrise_offset": {
+      "value": 0
+    },
+    "sunset_offset": {
+      "value": 0
+    }
+  },
+  "name": "LightSwitch",
+  "version": "1.0"
+}

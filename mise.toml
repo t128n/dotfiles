@@ -15,11 +15,16 @@ starship = "latest"
 "~/.config/opencode" = { source = "home/dot-config/opencode", mode = "symlink-each", exclude = ["cli.json", "service.json"] }
 "~/.gitconfig" = { source = "home/dot-gitconfig", mode = "symlink" }
 "~/.gitconfig-identity" = { source = "home/dot-gitconfig-identity", mode = "copy", create_if_missing = true }
-"~/.local/share/t128n-dotfiles-cursor" = { source = "cursors", mode = "symlink" }
-"~/.local/share/t128n-dotfiles-templates" = { source = "templates", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/cursors" = { source = "cursors", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/templates" = { source = "templates", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/wallpapers" = { source = "wallpapers", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/scripts/cleanup" = { source = "scripts/cleanup", mode = "symlink" }
 "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "home/dot-config/powershell/Microsoft.PowerShell_profile.ps1", mode = "symlink" }
 "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" = { source = "home/dot-config/windows-terminal/settings.json", mode = "symlink" }
+"~/AppData/Local/Packages/Microsoft.CommandPalette_8wekyb3d8bbwe/LocalState/settings.json" = { source = "home/dot-config/command-palette/settings.json", mode = "symlink" }
+"~/AppData/Local/Microsoft/PowerToys/LightSwitch/settings.json" = { source = "home/dot-config/powertoys/LightSwitch/settings.json", mode = "symlink" }
+"~/AppData/Local/Microsoft/PowerToys/Keyboard Manager/default.json" = { source = "home/dot-config/powertoys/Keyboard Manager/default.json", mode = "symlink" }
+"~/AppData/Local/Microsoft/PowerToys/Keyboard Manager/settings.json" = { source = "home/dot-config/powertoys/Keyboard Manager/settings.json", mode = "symlink" }
 
 [bootstrap.hooks.final]
 description = "Check ~/.gitconfig-identity"

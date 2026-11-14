@@ -61,8 +61,8 @@ usage = '''
 arg "<template>" help="Template directory name"
 arg "<directory>" help="Destination directory"
 '''
-run = 'copier copy --trust "$HOME/.local/share/t128n-dotfiles-templates/$usage_template" "$usage_directory"'
-run_windows = 'copier copy --trust "%USERPROFILE%\.local\share\t128n-dotfiles-templates\%usage_template%" "%usage_directory%"'
+run = 'copier copy --trust "$HOME/.local/share/t128n-dotfiles/templates/$usage_template" "$usage_directory"'
+run_windows = 'copier copy --trust "%USERPROFILE%\.local\share\t128n-dotfiles\templates\%usage_template%" "%usage_directory%"'
 
 [tasks.clean]
 description = "Apply the declared system state (dry-run; pass --apply)"

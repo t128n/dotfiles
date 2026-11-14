@@ -102,6 +102,14 @@ properties:
         id: Obsidian.Obsidian
         source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: powertoys
+      directives:
+        description: Install PowerToys
+      settings:
+        id: Microsoft.PowerToys
+        source: winget
+
     # Machine settings. Developer Mode must already be enabled before
     # `mise bootstrap` so it can create symlinks; this entry repairs drift.
     # - resource: Microsoft.Windows.Settings/WindowsSettings

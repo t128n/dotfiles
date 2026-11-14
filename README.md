@@ -82,7 +82,7 @@ mise run apps:check
 
 ## Project templates
 
-Templates live in `templates/` and are deployed to `~/.local/share/t128n-dotfiles-templates`. Create a project with:
+Templates live in `templates/` and are deployed to `~/.local/share/t128n-dotfiles/templates`. Create a project with:
 
 ```sh
 mise run new minimal ~/Workspace/Scratch/my-app

@@ -1,7 +1,7 @@
-# Cleanup item: taskbar position and multi-monitor window display
+# Cleanup item: taskbar position, multi-monitor display, and declutter
 #
-# Enforces a bottom taskbar and the "all taskbars" multi-monitor mode, where
-# every display's taskbar shows every open window.
+# Enforces a bottom, left-aligned taskbar with "all taskbars" multi-monitor
+# mode and hides Widgets, Chat, Task View, and Copilot buttons.
 
 $StuckRectsKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'
 $AdvancedKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
@@ -9,6 +9,16 @@ $AdvancedKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advance
 # Offset 12 in the StuckRects3 Settings blob is the taskbar edge:
 # 0 = left, 1 = top, 2 = right, 3 = bottom.
 $Bottom = 3
+
+$AdvancedTargets = [ordered]@{
+    MMTaskbarEnabled   = 1
+    MMTaskbarMode      = 0
+    TaskbarAl          = 0
+    TaskbarDa          = 0
+    TaskbarMn          = 0
+    ShowTaskViewButton = 0
+    ShowCopilotButton  = 0
+}
 
 function Get-TaskbarPosition {
     $settings = (Get-ItemProperty -Path $StuckRectsKey -Name Settings -ErrorAction SilentlyContinue).Settings
@@ -27,13 +37,17 @@ function Set-TaskbarPosition {
     Set-ItemProperty -Path $StuckRectsKey -Name Settings -Value $updated -Type Binary
 }
 
-function Test-AllTaskbars {
+function Test-AdvancedTaskbar {
     $advanced = Get-ItemProperty -Path $AdvancedKey -ErrorAction SilentlyContinue
-    return ($advanced.MMTaskbarEnabled -eq 1) -and ($advanced.MMTaskbarMode -eq 0)
+    if (-not $advanced) { return $false }
+    foreach ($entry in $AdvancedTargets.GetEnumerator()) {
+        if ($advanced.($entry.Key) -ne $entry.Value) { return $false }
+    }
+    return $true
 }
 
 function Test-CleanupItem {
-    return ((Get-TaskbarPosition) -eq $Bottom) -and (Test-AllTaskbars)
+    return ((Get-TaskbarPosition) -eq $Bottom) -and (Test-AdvancedTaskbar)
 }
 
 function Set-CleanupItem {
@@ -44,10 +58,12 @@ function Set-CleanupItem {
         $changed = $true
     }
 
-    if (-not (Test-AllTaskbars)) {
-        Set-ItemProperty -Path $AdvancedKey -Name MMTaskbarEnabled -Value 1 -Type DWord
-        Set-ItemProperty -Path $AdvancedKey -Name MMTaskbarMode -Value 0 -Type DWord
-        $changed = $true
+    $advanced = Get-ItemProperty -Path $AdvancedKey -ErrorAction SilentlyContinue
+    foreach ($entry in $AdvancedTargets.GetEnumerator()) {
+        if (-not $advanced -or $advanced.($entry.Key) -ne $entry.Value) {
+            Set-ItemProperty -Path $AdvancedKey -Name $entry.Key -Value $entry.Value -Type DWord
+            $changed = $true
+        }
     }
 
     if ($changed) { Restart-Explorer }
