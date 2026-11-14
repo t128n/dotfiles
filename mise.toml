@@ -12,9 +12,10 @@ starship = "latest"
 "~/.config/starship.toml" = { source = "home/dot-config/starship.toml", mode = "symlink" }
 "~/.config/espanso/config/default.yml" = { source = "home/dot-config/espanso/config/default.yml", mode = "symlink" }
 "~/.config/espanso/match/base.yml" = { source = "home/dot-config/espanso/match/base.yml", mode = "symlink" }
-"~/.config/opencode" = { source = "home/dot-config/opencode", mode = "symlink-each" }
+"~/.config/opencode" = { source = "home/dot-config/opencode", mode = "symlink-each", exclude = ["cli.json", "service.json"] }
 "~/.gitconfig" = { source = "home/dot-gitconfig", mode = "symlink" }
 "~/.gitconfig-identity" = { source = "home/dot-gitconfig-identity", mode = "copy", create_if_missing = true }
+"~/.local/share/t128n-dotfiles-cursor" = { source = "cursors", mode = "symlink" }
 "~/.local/share/t128n-dotfiles-templates" = { source = "templates", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/scripts/cleanup" = { source = "scripts/cleanup", mode = "symlink" }
 "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "home/dot-config/powershell/Microsoft.PowerShell_profile.ps1", mode = "symlink" }
@@ -26,8 +27,12 @@ run = "grep -q \"Your Name\" ~/.gitconfig-identity 2>/dev/null && echo \"Fill in
 run_windows = "findstr /C:\"Your Name\" \"%USERPROFILE%\\.gitconfig-identity\" >nul 2>nul && echo Fill in %USERPROFILE%\\.gitconfig-identity (mise run gitconfig:identity) with user.name, user.email, and user.signingKey. || exit /b 0"
 
 [tasks.setup]
-description = "Apply this checkout to the current machine"
-run = "mise bootstrap"
+description = "Apply this checkout to the current machine (bootstrap, dotfiles, apps, cleanup)"
+run = [
+    "mise bootstrap --force-dotfiles",
+    "mise run apps",
+    "mise run clean --apply",
+]
 
 [tasks.apply]
 description = "Deploy dotfiles into $HOME"
