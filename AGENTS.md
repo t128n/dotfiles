@@ -10,4 +10,4 @@
 - Bootstrap hooks and tasks use `cmd /c` on Windows and `sh` on Unix. Use `run_windows` for platform-specific commands.
 - `mise bootstrap --from` only prints the clone command in `--dry-run`; it needs a real clone before it can plan.
 - `apps/<os>/` holds native app declarations. `mise run apps` installs them and `mise run apps:check` reports drift; neither is deployed to `$HOME` or run by `mise bootstrap`. See `apps/AGENTS.md`.
-- `scripts/cleanup/` holds per-OS system-state items. `mise run clean` reports drift and `mise run clean --apply` applies the declared state; the directory is deployed to `~/.local/share/t128n-dotfiles/scripts/cleanup` so the task works anywhere. See `scripts/cleanup/AGENTS.md`.
+- `scripts/system/` holds declarative OS-state resources (DSC-style `test`/`set`/`unset` + post-install hooks). `mise run system` reports drift and `mise run system --apply` applies the declared state; the directory is deployed to `~/.local/share/t128n-dotfiles/scripts/system` so the task works anywhere. See `scripts/system/AGENTS.md`.

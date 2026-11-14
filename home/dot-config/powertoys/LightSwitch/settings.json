@@ -10,10 +10,10 @@
       "value": "FixedHours"
     },
     "lightTime": {
-      "value": 360
+      "value": 420
     },
     "darkTime": {
-      "value": 1080
+      "value": 1020
     },
     "sunrise_offset": {
       "value": 0

@@ -110,6 +110,22 @@ properties:
         id: Microsoft.PowerToys
         source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: openlogi
+      directives:
+        description: Install OpenLogi
+      settings:
+        id: AprilNEA.OpenLogi
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: imhex
+      directives:
+        description: Install ImHex
+      settings:
+        id: WerWolv.ImHex
+        source: winget
+
     # Machine settings. Developer Mode must already be enabled before
     # `mise bootstrap` so it can create symlinks; this entry repairs drift.
     # - resource: Microsoft.Windows.Settings/WindowsSettings

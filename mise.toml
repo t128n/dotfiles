@@ -18,10 +18,12 @@ starship = "latest"
 "~/.local/share/t128n-dotfiles/cursors" = { source = "cursors", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/templates" = { source = "templates", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/wallpapers" = { source = "wallpapers", mode = "symlink" }
-"~/.local/share/t128n-dotfiles/scripts/cleanup" = { source = "scripts/cleanup", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/scripts/system" = { source = "scripts/system", mode = "symlink" }
 "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "home/dot-config/powershell/Microsoft.PowerShell_profile.ps1", mode = "symlink" }
+"~/Documents/ShareX/HotkeysConfig.json" = { source = "home/dot-config/sharex/HotkeysConfig.json", mode = "symlink" }
 "~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" = { source = "home/dot-config/windows-terminal/settings.json", mode = "symlink" }
 "~/AppData/Local/Packages/Microsoft.CommandPalette_8wekyb3d8bbwe/LocalState/settings.json" = { source = "home/dot-config/command-palette/settings.json", mode = "symlink" }
+"~/AppData/Local/Microsoft/PowerToys/settings.json" = { source = "home/dot-config/powertoys/settings.json", mode = "symlink" }
 "~/AppData/Local/Microsoft/PowerToys/LightSwitch/settings.json" = { source = "home/dot-config/powertoys/LightSwitch/settings.json", mode = "symlink" }
 "~/AppData/Local/Microsoft/PowerToys/Keyboard Manager/default.json" = { source = "home/dot-config/powertoys/Keyboard Manager/default.json", mode = "symlink" }
 "~/AppData/Local/Microsoft/PowerToys/Keyboard Manager/settings.json" = { source = "home/dot-config/powertoys/Keyboard Manager/settings.json", mode = "symlink" }
@@ -32,11 +34,12 @@ run = "grep -q \"Your Name\" ~/.gitconfig-identity 2>/dev/null && echo \"Fill in
 run_windows = "findstr /C:\"Your Name\" \"%USERPROFILE%\\.gitconfig-identity\" >nul 2>nul && echo Fill in %USERPROFILE%\\.gitconfig-identity (mise run gitconfig:identity) with user.name, user.email, and user.signingKey. || exit /b 0"
 
 [tasks.setup]
-description = "Apply this checkout to the current machine (bootstrap, dotfiles, apps, cleanup)"
+description = "Apply this checkout to the current machine (bootstrap, dotfiles, env, apps, system)"
 run = [
     "mise bootstrap --force-dotfiles",
+    "mise run env",
     "mise run apps",
-    "mise run clean --apply",
+    "mise run system --apply",
 ]
 
 [tasks.apply]
@@ -73,13 +76,11 @@ run = "bun scripts/setup-env.ts --check"
 
 [tasks.apps]
 description = "Install the apps declared for this platform"
-run = 'sh scripts/apps/apply.sh'
-run_windows = 'pwsh -NoProfile -File scripts/apps/apply.ps1'
+run = "bun scripts/apps/apply.ts"
 
 [tasks."apps:check"]
 description = "Report declared apps that are not installed"
-run = 'sh scripts/apps/apply.sh --check'
-run_windows = 'pwsh -NoProfile -File scripts/apps/apply.ps1 -Check'
+run = "bun scripts/apps/apply.ts --check"
 
 [tasks."gitconfig:identity"]
 description = "Open ~/.gitconfig-identity in your editor"

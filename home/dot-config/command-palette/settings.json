@@ -1,602 +1,671 @@
-{
-  "Hotkey": {
-    "win": false,
-    "ctrl": false,
-    "alt": false,
-    "shift": false,
-    "code": 135,
-    "key": "F24"
-  },
-  "DockFocusHotkey": {
-    "win": true,
-    "ctrl": false,
-    "alt": true,
-    "shift": false,
-    "code": 74,
-    "key": ""
-  },
-  "DockFocusPrimaryFirst": false,
-  "DockFocusAcrossMonitors": true,
-  "DockRememberLastFocusedItem": true,
-  "UseLowLevelGlobalHotkey": false,
-  "ShowAppDetails": false,
-  "BackspaceGoesBack": false,
-  "SingleClickActivates": false,
-  "HighlightSearchOnActivate": false,
-  "KeepPreviousQuery": false,
-  "ShowSystemTrayIcon": false,
-  "Language": null,
-  "IgnoreShortcutWhenFullscreen": false,
-  "IgnoreShortcutWhenBusy": false,
-  "AllowBreakthroughShortcut": false,
-  "PinnedCommands": [],
-  "EnableExternalCommandLinks": true,
-  "AllowAltF4": false,
-  "CompactMode": false,
-  "ShowQuickAccessShelf": false,
-  "ListItemAltNumberBehavior": "Run",
-  "RecentCommandsOnQuickAccessShelf": "Hidden",
-  "RecentCommandsOnHome": "Hidden",
-  "QuickAccessShelfPinnedCommandLimit": 9,
-  "RecentCommandsDisplayLimit": 5,
-  "CompactCenterHeightPercentage": 75,
-  "ProviderSettings": {
-    "PerformanceMonitor": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.run": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.shell.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.calculator": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.calculator.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.powertoys.awake.keep30Min.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.powerRename.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.mouseUtils.findMyMouse.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.colorPicker.savedColors.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.environmentVariables.openAdmin.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.mouseWithoutBorders.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.lightSwitch.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.advancedPaste.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.newPlus.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.textExtractor.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.workspaces.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.colorPicker.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.zoomIt.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.screenRuler.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.status.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.hosts.open.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.powerToysRun.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.keep1Hour.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.fancyZones.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.imageResizer.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.environmentVariables.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.shortcutGuide.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.keep2Hours.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.fileLocksmith.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.environmentVariables.open.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.turnOff.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.advancedPaste.open.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.hosts.openAdmin.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.fileExplorerAddons.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.cropAndLock.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.peek.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.commandNotFound.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.workspaces.openEditor.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.quickAccent.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.keyboardManager.openNewEditor.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.lightSwitch.toggle.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.registryPreview.open.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.mouseUtils.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        ".fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.alwaysOnTop.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.keyboardManager.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.hosts.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.awake.keepIndefinite.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.colorPicker.open.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        },
-        "com.microsoft.powertoys.registryPreview.openSettings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "Windows.Services": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "WindowsTerminalProfiles": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "Windows.ClipboardHistory": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.datetime": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.timedate.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "Windows.Registry": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.core": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.log": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        },
-        "com.microsoft.cmdpal.reload": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        },
-        "com.microsoft.cmdpal.quit": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.websearch": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.websearch.openurl.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        },
-        "com.microsoft.cmdpal.builtin.websearch.execute.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "Files": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.indexer.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "WinGet": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "AllApps": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.windowssettings": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.windows.settings.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "WindowWalker": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.remotedesktop": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.remotedesktop.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": false
-        }
-      },
-      "PinnedCommandIds": []
-    },
-    "Bookmarks": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {},
-      "PinnedCommandIds": []
-    },
-    "com.microsoft.cmdpal.builtin.system": {
-      "IsEnabled": true,
-      "SearchWeight": "Normal",
-      "FallbackCommands": {
-        "com.microsoft.cmdpal.builtin.system.fallback": {
-          "IsEnabled": true,
-          "IncludeInGlobalResults": true
-        }
-      },
-      "PinnedCommandIds": []
-    }
-  },
-  "FallbackRanks": [
-    "com.microsoft.cmdpal.builtin.shell.fallback",
-    "com.microsoft.cmdpal.builtin.calculator.fallback",
-    "com.microsoft.cmdpal.builtin.indexer.fallback",
-    "com.microsoft.cmdpal.builtin.websearch.openurl.fallback",
-    "com.microsoft.cmdpal.builtin.websearch.execute.fallback",
-    "com.microsoft.cmdpal.builtin.windows.settings.fallback",
-    "com.microsoft.cmdpal.quit",
-    "com.microsoft.cmdpal.reload",
-    "com.microsoft.cmdpal.log",
-    "com.microsoft.cmdpal.builtin.timedate.fallback",
-    "com.microsoft.cmdpal.builtin.system.fallback",
-    "com.microsoft.cmdpal.builtin.remotedesktop.fallback",
-    "com.microsoft.powertoys.awake.openSettings.fallback",
-    "com.microsoft.powertoys.awake.status.fallback",
-    "com.microsoft.powertoys.awake.keepIndefinite.fallback",
-    "com.microsoft.powertoys.awake.keep30Min.fallback",
-    "com.microsoft.powertoys.awake.keep1Hour.fallback",
-    "com.microsoft.powertoys.awake.keep2Hours.fallback",
-    "com.microsoft.powertoys.awake.turnOff.fallback",
-    "com.microsoft.powertoys.advancedPaste.open.fallback",
-    "com.microsoft.powertoys.advancedPaste.openSettings.fallback",
-    "com.microsoft.powertoys.workspaces.openSettings.fallback",
-    "com.microsoft.powertoys.workspaces.openEditor.fallback",
-    "com.microsoft.powertoys.lightSwitch.toggle.fallback",
-    "com.microsoft.powertoys.lightSwitch.openSettings.fallback",
-    "com.microsoft.powertoys.powerToysRun.openSettings.fallback",
-    "com.microsoft.powertoys.screenRuler.openSettings.fallback",
-    "com.microsoft.powertoys.shortcutGuide.openSettings.fallback",
-    "com.microsoft.powertoys.textExtractor.openSettings.fallback",
-    "com.microsoft.powertoys.zoomIt.openSettings.fallback",
-    "com.microsoft.powertoys.colorPicker.openSettings.fallback",
-    "com.microsoft.powertoys.colorPicker.open.fallback",
-    "com.microsoft.powertoys.colorPicker.savedColors.fallback",
-    "com.microsoft.powertoys.alwaysOnTop.openSettings.fallback",
-    "com.microsoft.powertoys.cropAndLock.openSettings.fallback",
-    "com.microsoft.powertoys.fancyZones.openSettings.fallback",
-    "com.microsoft.powertoys.keyboardManager.openNewEditor.fallback",
-    "com.microsoft.powertoys.keyboardManager.openSettings.fallback",
-    "com.microsoft.powertoys.mouseUtils.findMyMouse.fallback",
-    "com.microsoft.powertoys.mouseUtils.openSettings.fallback",
-    "com.microsoft.powertoys.mouseWithoutBorders.openSettings.fallback",
-    ".fallback",
-    ".fallback",
-    "com.microsoft.powertoys.quickAccent.openSettings.fallback",
-    "com.microsoft.powertoys.fileExplorerAddons.openSettings.fallback",
-    "com.microsoft.powertoys.fileLocksmith.openSettings.fallback",
-    "com.microsoft.powertoys.imageResizer.openSettings.fallback",
-    "com.microsoft.powertoys.newPlus.openSettings.fallback",
-    "com.microsoft.powertoys.peek.openSettings.fallback",
-    "com.microsoft.powertoys.powerRename.openSettings.fallback",
-    "com.microsoft.powertoys.commandNotFound.openSettings.fallback",
-    "com.microsoft.powertoys.environmentVariables.open.fallback",
-    "com.microsoft.powertoys.environmentVariables.openAdmin.fallback",
-    "com.microsoft.powertoys.environmentVariables.openSettings.fallback",
-    "com.microsoft.powertoys.hosts.open.fallback",
-    "com.microsoft.powertoys.hosts.openAdmin.fallback",
-    "com.microsoft.powertoys.hosts.openSettings.fallback",
-    "com.microsoft.powertoys.registryPreview.open.fallback",
-    "com.microsoft.powertoys.registryPreview.openSettings.fallback"
-  ],
-  "Aliases": {
-    "=": {
-      "CommandId": "com.microsoft.cmdpal.calculator",
-      "Alias": "=",
-      "IsDirect": true
-    },
-    "??": {
-      "CommandId": "com.microsoft.cmdpal.websearch",
-      "Alias": "??",
-      "IsDirect": true
-    },
-    "\u003E": {
-      "CommandId": "com.microsoft.cmdpal.run",
-      "Alias": "\u003E",
-      "IsDirect": true
-    },
-    ")": {
-      "CommandId": "com.microsoft.cmdpal.timedate",
-      "Alias": ")",
-      "IsDirect": true
-    },
-    "file ": {
-      "CommandId": "com.microsoft.indexer.fileSearch",
-      "Alias": "file",
-      "IsDirect": false
-    },
-    ":": {
-      "CommandId": "com.microsoft.cmdpal.registry",
-      "Alias": ":",
-      "IsDirect": true
-    },
-    "$": {
-      "CommandId": "com.microsoft.cmdpal.windowsSettings",
-      "Alias": "$",
-      "IsDirect": true
-    },
-    "\u003C": {
-      "CommandId": "com.microsoft.cmdpal.windowwalker",
-      "Alias": "\u003C",
-      "IsDirect": true
-    }
-  },
-  "CommandHotkeys": [],
-  "SummonOn": "ToMouse",
-  "ToastPosition": "UseSystemSettings",
-  "DisableAnimations": false,
-  "LastWindowPosition": {
-    "X": 1320,
-    "Y": 684,
-    "Width": 1200,
-    "Height": 720,
-    "ScreenWidth": 3840,
-    "ScreenHeight": 2088,
-    "Dpi": 144,
-    "IsSizeValid": true
-  },
-  "AutoGoHomeInterval": "00:00:00",
-  "EscapeKeyBehaviorSetting": "ClearSearchFirstThenGoBack",
-  "EnableDock": false,
-  "DockSettings": {
-    "Side": "Top",
-    "DockSize": "Default",
-    "AlwaysOnTop": true,
-    "AutoHide": false,
-    "Backdrop": "Acrylic",
-    "Theme": "Default",
-    "ColorizationMode": "None",
-    "CustomThemeColor": {
-      "A": 0,
-      "R": 255,
-      "G": 255,
-      "B": 255
-    },
-    "CustomThemeColorIntensity": 100,
-    "BackgroundImageOpacity": 20,
-    "BackgroundImageBlurAmount": 0,
-    "BackgroundImageBrightness": 0,
-    "BackgroundImageFit": "Fill",
-    "BackgroundImagePath": null,
-    "StartBands": [
-      {
-        "ProviderId": "com.microsoft.cmdpal.builtin.core",
-        "CommandId": "com.microsoft.cmdpal.home",
-        "ShowTitles": null,
-        "ShowSubtitles": null
-      },
-      {
-        "ProviderId": "WinGet",
-        "CommandId": "com.microsoft.cmdpal.winget",
-        "ShowTitles": false,
-        "ShowSubtitles": null
-      }
-    ],
-    "CenterBands": [],
-    "EndBands": [
-      {
-        "ProviderId": "PerformanceMonitor",
-        "CommandId": "com.microsoft.cmdpal.performanceWidget",
-        "ShowTitles": null,
-        "ShowSubtitles": null
-      },
-      {
-        "ProviderId": "PerformanceMonitor",
-        "CommandId": "com.microsoft.cmdpal.performanceWidget.networkSpeed",
-        "ShowTitles": null,
-        "ShowSubtitles": null
-      },
-      {
-        "ProviderId": "com.microsoft.cmdpal.builtin.datetime",
-        "CommandId": "com.microsoft.cmdpal.timedate.dockBand",
-        "ShowTitles": null,
-        "ShowSubtitles": null
-      }
-    ],
-    "ShowLabels": true,
-    "MonitorConfigs": []
-  },
-  "Theme": "Default",
-  "ColorizationMode": "None",
-  "CustomThemeColor": {
-    "A": 0,
-    "R": 0,
-    "G": 0,
-    "B": 0
-  },
-  "CustomThemeColorIntensity": 0,
-  "BackgroundImageTintIntensity": 0,
-  "BackgroundImageOpacity": 0,
-  "BackgroundImageBlurAmount": 0,
-  "BackgroundImageBrightness": 0,
-  "BackgroundImageFit": "Fill",
-  "BackgroundImagePath": null,
-  "BackdropStyle": "Acrylic",
-  "BackdropOpacity": 0,
-  "GalleryFeedUrl": null,
-  "ShowHwndFrame": false
+﻿{
+    "Hotkey":  {
+                   "win":  true,
+                   "ctrl":  false,
+                   "alt":  false,
+                   "shift":  false,
+                   "code":  0,
+                   "key":  ""
+               },
+    "DockFocusHotkey":  {
+                            "win":  true,
+                            "ctrl":  false,
+                            "alt":  true,
+                            "shift":  false,
+                            "code":  74,
+                            "key":  ""
+                        },
+    "DockFocusPrimaryFirst":  false,
+    "DockFocusAcrossMonitors":  true,
+    "DockRememberLastFocusedItem":  true,
+    "UseLowLevelGlobalHotkey":  true,
+    "UseWindowsKey":  true,
+    "ShowAppDetails":  false,
+    "BackspaceGoesBack":  false,
+    "SingleClickActivates":  false,
+    "HighlightSearchOnActivate":  false,
+    "KeepPreviousQuery":  false,
+    "ShowSystemTrayIcon":  false,
+    "Language":  null,
+    "IgnoreShortcutWhenFullscreen":  false,
+    "IgnoreShortcutWhenBusy":  false,
+    "AllowBreakthroughShortcut":  false,
+    "PinnedCommands":  [
+
+                       ],
+    "EnableExternalCommandLinks":  true,
+    "AllowAltF4":  false,
+    "CompactMode":  true,
+    "ShowQuickAccessShelf":  false,
+    "ListItemAltNumberBehavior":  "Run",
+    "RecentCommandsOnQuickAccessShelf":  "Hidden",
+    "RecentCommandsOnHome":  "Hidden",
+    "QuickAccessShelfPinnedCommandLimit":  9,
+    "RecentCommandsDisplayLimit":  5,
+    "CompactCenterHeightPercentage":  75,
+    "ProviderSettings":  {
+                             "Bookmarks":  {
+                                               "IsEnabled":  false,
+                                               "SearchWeight":  "Normal",
+                                               "FallbackCommands":  {
+
+                                                                    },
+                                               "PinnedCommandIds":  [
+
+                                                                    ]
+                                           },
+                             "Microsoft.PowerToys.SparseApp_8wekyb3d8bbwe!PowerToys.CmdPalExtension!PowerToys":  {
+                                                                                                                     "IsEnabled":  true,
+                                                                                                                     "SearchWeight":  "Normal",
+                                                                                                                     "FallbackCommands":  {
+                                                                                                                                              ".fallback":  {
+                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.powerRename.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.colorPicker.open.fallback":  {
+                                                                                                                                                                                                        "IsEnabled":  true,
+                                                                                                                                                                                                        "IncludeInGlobalResults":  false
+                                                                                                                                                                                                    },
+                                                                                                                                              "com.microsoft.powertoys.registryPreview.open.fallback":  {
+                                                                                                                                                                                                            "IsEnabled":  true,
+                                                                                                                                                                                                            "IncludeInGlobalResults":  false
+                                                                                                                                                                                                        },
+                                                                                                                                              "com.microsoft.powertoys.advancedPaste.openSettings.fallback":  {
+                                                                                                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                                                                                                  "IncludeInGlobalResults":  false
+                                                                                                                                                                                                              },
+                                                                                                                                              "com.microsoft.powertoys.environmentVariables.openAdmin.fallback":  {
+                                                                                                                                                                                                                      "IsEnabled":  true,
+                                                                                                                                                                                                                      "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                  },
+                                                                                                                                              "com.microsoft.powertoys.environmentVariables.open.fallback":  {
+                                                                                                                                                                                                                 "IsEnabled":  true,
+                                                                                                                                                                                                                 "IncludeInGlobalResults":  false
+                                                                                                                                                                                                             },
+                                                                                                                                              "com.microsoft.powertoys.colorPicker.savedColors.fallback":  {
+                                                                                                                                                                                                               "IsEnabled":  true,
+                                                                                                                                                                                                               "IncludeInGlobalResults":  false
+                                                                                                                                                                                                           },
+                                                                                                                                              "com.microsoft.powertoys.fallback":  {
+                                                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                                                       "IncludeInGlobalResults":  false
+                                                                                                                                                                                   },
+                                                                                                                                              "com.microsoft.powertoys.alwaysOnTop.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.quickAccent.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.awake.keepIndefinite.fallback":  {
+                                                                                                                                                                                                            "IsEnabled":  true,
+                                                                                                                                                                                                            "IncludeInGlobalResults":  false
+                                                                                                                                                                                                        },
+                                                                                                                                              "com.microsoft.powertoys.powerToysRun.openSettings.fallback":  {
+                                                                                                                                                                                                                 "IsEnabled":  true,
+                                                                                                                                                                                                                 "IncludeInGlobalResults":  false
+                                                                                                                                                                                                             },
+                                                                                                                                              "com.microsoft.powertoys.newPlus.openSettings.fallback":  {
+                                                                                                                                                                                                            "IsEnabled":  true,
+                                                                                                                                                                                                            "IncludeInGlobalResults":  false
+                                                                                                                                                                                                        },
+                                                                                                                                              "com.microsoft.powertoys.lightSwitch.toggle.fallback":  {
+                                                                                                                                                                                                          "IsEnabled":  true,
+                                                                                                                                                                                                          "IncludeInGlobalResults":  false
+                                                                                                                                                                                                      },
+                                                                                                                                              "com.microsoft.powertoys.textExtractor.openSettings.fallback":  {
+                                                                                                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                                                                                                  "IncludeInGlobalResults":  false
+                                                                                                                                                                                                              },
+                                                                                                                                              "com.microsoft.powertoys.awake.openSettings.fallback":  {
+                                                                                                                                                                                                          "IsEnabled":  true,
+                                                                                                                                                                                                          "IncludeInGlobalResults":  false
+                                                                                                                                                                                                      },
+                                                                                                                                              "com.microsoft.powertoys.lightSwitch.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.hosts.openAdmin.fallback":  {
+                                                                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                                                                       "IncludeInGlobalResults":  false
+                                                                                                                                                                                                   },
+                                                                                                                                              "com.microsoft.powertoys.fileExplorerAddons.openSettings.fallback":  {
+                                                                                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                                                                                       "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                   },
+                                                                                                                                              "com.microsoft.powertoys.commandNotFound.openSettings.fallback":  {
+                                                                                                                                                                                                                    "IsEnabled":  true,
+                                                                                                                                                                                                                    "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                },
+                                                                                                                                              "com.microsoft.powertoys.fileLocksmith.openSettings.fallback":  {
+                                                                                                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                                                                                                  "IncludeInGlobalResults":  false
+                                                                                                                                                                                                              },
+                                                                                                                                              "com.microsoft.powertoys.workspaces.openEditor.fallback":  {
+                                                                                                                                                                                                             "IsEnabled":  true,
+                                                                                                                                                                                                             "IncludeInGlobalResults":  false
+                                                                                                                                                                                                         },
+                                                                                                                                              "com.microsoft.powertoys.awake.keep2Hours.fallback":  {
+                                                                                                                                                                                                        "IsEnabled":  true,
+                                                                                                                                                                                                        "IncludeInGlobalResults":  false
+                                                                                                                                                                                                    },
+                                                                                                                                              "com.microsoft.powertoys.awake.keep1Hour.fallback":  {
+                                                                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                                                                       "IncludeInGlobalResults":  false
+                                                                                                                                                                                                   },
+                                                                                                                                              "com.microsoft.powertoys.screenRuler.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.cropAndLock.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.environmentVariables.openSettings.fallback":  {
+                                                                                                                                                                                                                         "IsEnabled":  true,
+                                                                                                                                                                                                                         "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                     },
+                                                                                                                                              "com.microsoft.powertoys.keyboardManager.openSettings.fallback":  {
+                                                                                                                                                                                                                    "IsEnabled":  true,
+                                                                                                                                                                                                                    "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                },
+                                                                                                                                              "com.microsoft.powertoys.mouseUtils.openSettings.fallback":  {
+                                                                                                                                                                                                               "IsEnabled":  true,
+                                                                                                                                                                                                               "IncludeInGlobalResults":  false
+                                                                                                                                                                                                           },
+                                                                                                                                              "com.microsoft.powertoys.fancyZones.openSettings.fallback":  {
+                                                                                                                                                                                                               "IsEnabled":  true,
+                                                                                                                                                                                                               "IncludeInGlobalResults":  false
+                                                                                                                                                                                                           },
+                                                                                                                                              "com.microsoft.powertoys.mouseWithoutBorders.openSettings.fallback":  {
+                                                                                                                                                                                                                        "IsEnabled":  true,
+                                                                                                                                                                                                                        "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                    },
+                                                                                                                                              "com.microsoft.powertoys.awake.turnOff.fallback":  {
+                                                                                                                                                                                                     "IsEnabled":  true,
+                                                                                                                                                                                                     "IncludeInGlobalResults":  false
+                                                                                                                                                                                                 },
+                                                                                                                                              "com.microsoft.powertoys.zoomIt.openSettings.fallback":  {
+                                                                                                                                                                                                           "IsEnabled":  true,
+                                                                                                                                                                                                           "IncludeInGlobalResults":  false
+                                                                                                                                                                                                       },
+                                                                                                                                              "com.microsoft.powertoys.awake.keep30Min.fallback":  {
+                                                                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                                                                       "IncludeInGlobalResults":  false
+                                                                                                                                                                                                   },
+                                                                                                                                              "com.microsoft.powertoys.advancedPaste.open.fallback":  {
+                                                                                                                                                                                                          "IsEnabled":  true,
+                                                                                                                                                                                                          "IncludeInGlobalResults":  false
+                                                                                                                                                                                                      },
+                                                                                                                                              "com.microsoft.powertoys.awake.status.fallback":  {
+                                                                                                                                                                                                    "IsEnabled":  true,
+                                                                                                                                                                                                    "IncludeInGlobalResults":  false
+                                                                                                                                                                                                },
+                                                                                                                                              "com.microsoft.powertoys.mouseUtils.findMyMouse.fallback":  {
+                                                                                                                                                                                                              "IsEnabled":  true,
+                                                                                                                                                                                                              "IncludeInGlobalResults":  false
+                                                                                                                                                                                                          },
+                                                                                                                                              "com.microsoft.powertoys.keyboardManager.openNewEditor.fallback":  {
+                                                                                                                                                                                                                     "IsEnabled":  true,
+                                                                                                                                                                                                                     "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                 },
+                                                                                                                                              "com.microsoft.powertoys.workspaces.openSettings.fallback":  {
+                                                                                                                                                                                                               "IsEnabled":  true,
+                                                                                                                                                                                                               "IncludeInGlobalResults":  false
+                                                                                                                                                                                                           },
+                                                                                                                                              "com.microsoft.powertoys.hosts.open.fallback":  {
+                                                                                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                                                                                  "IncludeInGlobalResults":  false
+                                                                                                                                                                                              },
+                                                                                                                                              "com.microsoft.powertoys.shortcutGuide.openSettings.fallback":  {
+                                                                                                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                                                                                                  "IncludeInGlobalResults":  false
+                                                                                                                                                                                                              },
+                                                                                                                                              "com.microsoft.powertoys.registryPreview.openSettings.fallback":  {
+                                                                                                                                                                                                                    "IsEnabled":  true,
+                                                                                                                                                                                                                    "IncludeInGlobalResults":  false
+                                                                                                                                                                                                                },
+                                                                                                                                              "com.microsoft.powertoys.hosts.openSettings.fallback":  {
+                                                                                                                                                                                                          "IsEnabled":  true,
+                                                                                                                                                                                                          "IncludeInGlobalResults":  false
+                                                                                                                                                                                                      },
+                                                                                                                                              "com.microsoft.powertoys.colorPicker.openSettings.fallback":  {
+                                                                                                                                                                                                                "IsEnabled":  true,
+                                                                                                                                                                                                                "IncludeInGlobalResults":  false
+                                                                                                                                                                                                            },
+                                                                                                                                              "com.microsoft.powertoys.peek.openSettings.fallback":  {
+                                                                                                                                                                                                         "IsEnabled":  true,
+                                                                                                                                                                                                         "IncludeInGlobalResults":  false
+                                                                                                                                                                                                     },
+                                                                                                                                              "com.microsoft.powertoys.imageResizer.openSettings.fallback":  {
+                                                                                                                                                                                                                 "IsEnabled":  true,
+                                                                                                                                                                                                                 "IncludeInGlobalResults":  false
+                                                                                                                                                                                                             }
+                                                                                                                                          },
+                                                                                                                     "PinnedCommandIds":  [
+
+                                                                                                                                          ]
+                                                                                                                 },
+                             "Windows.Services":  {
+                                                      "IsEnabled":  true,
+                                                      "SearchWeight":  "Normal",
+                                                      "FallbackCommands":  {
+
+                                                                           },
+                                                      "PinnedCommandIds":  [
+
+                                                                           ]
+                                                  },
+                             "WindowsTerminalProfiles":  {
+                                                             "IsEnabled":  true,
+                                                             "SearchWeight":  "Normal",
+                                                             "FallbackCommands":  {
+
+                                                                                  },
+                                                             "PinnedCommandIds":  [
+
+                                                                                  ]
+                                                         },
+                             "Microsoft.CmdPalGitHubExtension_8wekyb3d8bbwe!App!PG-SP-ID":  {
+                                                                                                "IsEnabled":  true,
+                                                                                                "SearchWeight":  "Normal",
+                                                                                                "FallbackCommands":  {
+
+                                                                                                                     },
+                                                                                                "PinnedCommandIds":  [
+
+                                                                                                                     ]
+                                                                                            },
+                             "com.microsoft.cmdpal.builtin.websearch":  {
+                                                                            "IsEnabled":  true,
+                                                                            "SearchWeight":  "Normal",
+                                                                            "FallbackCommands":  {
+                                                                                                     "com.microsoft.cmdpal.builtin.websearch.execute.fallback":  {
+                                                                                                                                                                     "IsEnabled":  true,
+                                                                                                                                                                     "IncludeInGlobalResults":  true
+                                                                                                                                                                 },
+                                                                                                     "com.microsoft.cmdpal.builtin.websearch.openurl.fallback":  {
+                                                                                                                                                                     "IsEnabled":  true,
+                                                                                                                                                                     "IncludeInGlobalResults":  true
+                                                                                                                                                                 }
+                                                                                                 },
+                                                                            "PinnedCommandIds":  [
+
+                                                                                                 ]
+                                                                        },
+                             "com.microsoft.cmdpal.builtin.datetime":  {
+                                                                           "IsEnabled":  true,
+                                                                           "SearchWeight":  "Normal",
+                                                                           "FallbackCommands":  {
+                                                                                                    "com.microsoft.cmdpal.builtin.timedate.fallback":  {
+                                                                                                                                                           "IsEnabled":  true,
+                                                                                                                                                           "IncludeInGlobalResults":  true
+                                                                                                                                                       }
+                                                                                                },
+                                                                           "PinnedCommandIds":  [
+
+                                                                                                ]
+                                                                       },
+                             "Files":  {
+                                           "IsEnabled":  true,
+                                           "SearchWeight":  "Normal",
+                                           "FallbackCommands":  {
+                                                                    "com.microsoft.cmdpal.builtin.indexer.fallback":  {
+                                                                                                                          "IsEnabled":  true,
+                                                                                                                          "IncludeInGlobalResults":  false
+                                                                                                                      }
+                                                                },
+                                           "PinnedCommandIds":  [
+
+                                                                ]
+                                       },
+                             "com.microsoft.cmdpal.builtin.core":  {
+                                                                       "IsEnabled":  true,
+                                                                       "SearchWeight":  "Normal",
+                                                                       "FallbackCommands":  {
+                                                                                                "com.microsoft.cmdpal.quit":  {
+                                                                                                                                  "IsEnabled":  true,
+                                                                                                                                  "IncludeInGlobalResults":  true
+                                                                                                                              },
+                                                                                                "com.microsoft.cmdpal.reload":  {
+                                                                                                                                    "IsEnabled":  true,
+                                                                                                                                    "IncludeInGlobalResults":  true
+                                                                                                                                },
+                                                                                                "com.microsoft.cmdpal.log":  {
+                                                                                                                                 "IsEnabled":  true,
+                                                                                                                                 "IncludeInGlobalResults":  true
+                                                                                                                             }
+                                                                                            },
+                                                                       "PinnedCommandIds":  [
+
+                                                                                            ]
+                                                                   },
+                             "com.microsoft.cmdpal.builtin.calculator":  {
+                                                                             "IsEnabled":  true,
+                                                                             "SearchWeight":  "Normal",
+                                                                             "FallbackCommands":  {
+                                                                                                      "com.microsoft.cmdpal.builtin.calculator.fallback":  {
+                                                                                                                                                               "IsEnabled":  true,
+                                                                                                                                                               "IncludeInGlobalResults":  false
+                                                                                                                                                           }
+                                                                                                  },
+                                                                             "PinnedCommandIds":  [
+
+                                                                                                  ]
+                                                                         },
+                             "Windows.Registry":  {
+                                                      "IsEnabled":  true,
+                                                      "SearchWeight":  "Normal",
+                                                      "FallbackCommands":  {
+
+                                                                           },
+                                                      "PinnedCommandIds":  [
+
+                                                                           ]
+                                                  },
+                             "PerformanceMonitor":  {
+                                                        "IsEnabled":  false,
+                                                        "SearchWeight":  "Normal",
+                                                        "FallbackCommands":  {
+
+                                                                             },
+                                                        "PinnedCommandIds":  [
+
+                                                                             ]
+                                                    },
+                             "com.microsoft.cmdpal.builtin.run":  {
+                                                                      "IsEnabled":  true,
+                                                                      "SearchWeight":  "Normal",
+                                                                      "FallbackCommands":  {
+                                                                                               "com.microsoft.cmdpal.builtin.shell.fallback":  {
+                                                                                                                                                   "IsEnabled":  true,
+                                                                                                                                                   "IncludeInGlobalResults":  true
+                                                                                                                                               }
+                                                                                           },
+                                                                      "PinnedCommandIds":  [
+
+                                                                                           ]
+                                                                  },
+                             "com.microsoft.cmdpal.builtin.system":  {
+                                                                         "IsEnabled":  true,
+                                                                         "SearchWeight":  "Normal",
+                                                                         "FallbackCommands":  {
+                                                                                                  "com.microsoft.cmdpal.builtin.system.fallback":  {
+                                                                                                                                                       "IsEnabled":  true,
+                                                                                                                                                       "IncludeInGlobalResults":  true
+                                                                                                                                                   }
+                                                                                              },
+                                                                         "PinnedCommandIds":  [
+
+                                                                                              ]
+                                                                     },
+                             "WinGet":  {
+                                            "IsEnabled":  true,
+                                            "SearchWeight":  "Normal",
+                                            "FallbackCommands":  {
+
+                                                                 },
+                                            "PinnedCommandIds":  [
+
+                                                                 ]
+                                        },
+                             "AllApps":  {
+                                             "IsEnabled":  true,
+                                             "SearchWeight":  "Normal",
+                                             "FallbackCommands":  {
+
+                                                                  },
+                                             "PinnedCommandIds":  [
+
+                                                                  ]
+                                         },
+                             "Windows.ClipboardHistory":  {
+                                                              "IsEnabled":  true,
+                                                              "SearchWeight":  "Normal",
+                                                              "FallbackCommands":  {
+
+                                                                                   },
+                                                              "PinnedCommandIds":  [
+
+                                                                                   ]
+                                                          },
+                             "com.microsoft.cmdpal.builtin.remotedesktop":  {
+                                                                                "IsEnabled":  false,
+                                                                                "SearchWeight":  "Normal",
+                                                                                "FallbackCommands":  {
+                                                                                                         "com.microsoft.cmdpal.builtin.remotedesktop.fallback":  {
+                                                                                                                                                                     "IsEnabled":  true,
+                                                                                                                                                                     "IncludeInGlobalResults":  false
+                                                                                                                                                                 }
+                                                                                                     },
+                                                                                "PinnedCommandIds":  [
+
+                                                                                                     ]
+                                                                            },
+                             "com.microsoft.cmdpal.builtin.windowssettings":  {
+                                                                                  "IsEnabled":  true,
+                                                                                  "SearchWeight":  "Normal",
+                                                                                  "FallbackCommands":  {
+                                                                                                           "com.microsoft.cmdpal.builtin.windows.settings.fallback":  {
+                                                                                                                                                                          "IsEnabled":  true,
+                                                                                                                                                                          "IncludeInGlobalResults":  true
+                                                                                                                                                                      }
+                                                                                                       },
+                                                                                  "PinnedCommandIds":  [
+
+                                                                                                       ]
+                                                                              },
+                             "WindowWalker":  {
+                                                  "IsEnabled":  true,
+                                                  "SearchWeight":  "Normal",
+                                                  "FallbackCommands":  {
+
+                                                                       },
+                                                  "PinnedCommandIds":  [
+
+                                                                       ]
+                                              }
+                         },
+    "FallbackRanks":  [
+                          "com.microsoft.cmdpal.builtin.run\u0000com.microsoft.cmdpal.builtin.shell.fallback",
+                          "com.microsoft.cmdpal.builtin.calculator\u0000com.microsoft.cmdpal.builtin.calculator.fallback",
+                          "Files\u0000com.microsoft.cmdpal.builtin.indexer.fallback",
+                          "com.microsoft.cmdpal.builtin.websearch\u0000com.microsoft.cmdpal.builtin.websearch.openurl.fallback",
+                          "com.microsoft.cmdpal.builtin.websearch\u0000com.microsoft.cmdpal.builtin.websearch.execute.fallback",
+                          "com.microsoft.cmdpal.builtin.windowssettings\u0000com.microsoft.cmdpal.builtin.windows.settings.fallback",
+                          "com.microsoft.cmdpal.builtin.core\u0000com.microsoft.cmdpal.quit",
+                          "com.microsoft.cmdpal.builtin.core\u0000com.microsoft.cmdpal.reload",
+                          "com.microsoft.cmdpal.builtin.core\u0000com.microsoft.cmdpal.log",
+                          "com.microsoft.cmdpal.builtin.datetime\u0000com.microsoft.cmdpal.builtin.timedate.fallback",
+                          "com.microsoft.cmdpal.builtin.system\u0000com.microsoft.cmdpal.builtin.system.fallback",
+                          "com.microsoft.cmdpal.builtin.remotedesktop\u0000com.microsoft.cmdpal.builtin.remotedesktop.fallback"
+                      ],
+    "Aliases":  {
+                    "=":  {
+                              "CommandId":  "com.microsoft.cmdpal.calculator",
+                              "Alias":  "=",
+                              "IsDirect":  true
+                          },
+                    "??":  {
+                               "CommandId":  "com.microsoft.cmdpal.websearch",
+                               "Alias":  "??",
+                               "IsDirect":  true
+                           },
+                    ")":  {
+                              "CommandId":  "com.microsoft.cmdpal.timedate",
+                              "Alias":  ")",
+                              "IsDirect":  true
+                          },
+                    "\u003c":  {
+                                   "CommandId":  "com.microsoft.cmdpal.windowwalker",
+                                   "Alias":  "\u003c",
+                                   "IsDirect":  true
+                               },
+                    "$":  {
+                              "CommandId":  "com.microsoft.cmdpal.windowsSettings",
+                              "Alias":  "$",
+                              "IsDirect":  true
+                          },
+                    ":":  {
+                              "CommandId":  "com.microsoft.cmdpal.registry",
+                              "Alias":  ":",
+                              "IsDirect":  true
+                          },
+                    "file ":  {
+                                  "CommandId":  "com.microsoft.indexer.fileSearch",
+                                  "Alias":  "file",
+                                  "IsDirect":  false
+                              },
+                    "\u003e":  {
+                                   "CommandId":  "com.microsoft.cmdpal.run",
+                                   "Alias":  "\u003e",
+                                   "IsDirect":  true
+                               }
+                },
+    "CommandHotkeys":  [
+
+                       ],
+    "SummonOn":  "ToMouse",
+    "ToastPosition":  "UseSystemSettings",
+    "DisableAnimations":  false,
+    "LastWindowPosition":  {
+                               "X":  1320,
+                               "Y":  684,
+                               "Width":  1200,
+                               "Height":  720,
+                               "ScreenWidth":  3840,
+                               "ScreenHeight":  2088,
+                               "Dpi":  144,
+                               "IsSizeValid":  true
+                           },
+    "AutoGoHomeInterval":  "00:00:00",
+    "EscapeKeyBehaviorSetting":  "ClearSearchFirstThenGoBack",
+    "EnableDock":  false,
+    "DockSettings":  {
+                         "Side":  "Top",
+                         "DockSize":  "Default",
+                         "AlwaysOnTop":  true,
+                         "AutoHide":  false,
+                         "Backdrop":  "Acrylic",
+                         "Theme":  "Default",
+                         "ColorizationMode":  "None",
+                         "CustomThemeColor":  {
+                                                  "A":  0,
+                                                  "R":  255,
+                                                  "G":  255,
+                                                  "B":  255
+                                              },
+                         "CustomThemeColorIntensity":  100,
+                         "BackgroundImageOpacity":  20,
+                         "BackgroundImageBlurAmount":  0,
+                         "BackgroundImageBrightness":  0,
+                         "BackgroundImageFit":  "Fill",
+                         "BackgroundImagePath":  null,
+                         "StartBands":  [
+                                            {
+                                                "ProviderId":  "com.microsoft.cmdpal.builtin.core",
+                                                "CommandId":  "com.microsoft.cmdpal.home",
+                                                "ShowTitles":  null,
+                                                "ShowSubtitles":  null
+                                            },
+                                            {
+                                                "ProviderId":  "WinGet",
+                                                "CommandId":  "com.microsoft.cmdpal.winget",
+                                                "ShowTitles":  false,
+                                                "ShowSubtitles":  null
+                                            }
+                                        ],
+                         "CenterBands":  [
+
+                                         ],
+                         "EndBands":  [
+                                          {
+                                              "ProviderId":  "PerformanceMonitor",
+                                              "CommandId":  "com.microsoft.cmdpal.performanceWidget",
+                                              "ShowTitles":  null,
+                                              "ShowSubtitles":  null
+                                          },
+                                          {
+                                              "ProviderId":  "PerformanceMonitor",
+                                              "CommandId":  "com.microsoft.cmdpal.performanceWidget.networkSpeed",
+                                              "ShowTitles":  null,
+                                              "ShowSubtitles":  null
+                                          },
+                                          {
+                                              "ProviderId":  "com.microsoft.cmdpal.builtin.datetime",
+                                              "CommandId":  "com.microsoft.cmdpal.timedate.dockBand",
+                                              "ShowTitles":  null,
+                                              "ShowSubtitles":  null
+                                          }
+                                      ],
+                         "ShowLabels":  true,
+                         "MonitorConfigs":  [
+                                                {
+                                                    "MonitorDeviceId":  "\\\\?\\DISPLAY#SAM7099#7\u00268b93ddd\u00260\u0026UID256#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+                                                    "MonitorHardwareId":  "SAM-7099-HNAW100822",
+                                                    "FallbackDisplayNumber":  1,
+                                                    "DisplayNameOverride":  null,
+                                                    "Enabled":  false,
+                                                    "Side":  null,
+                                                    "IsPrimary":  false,
+                                                    "IsCustomized":  false,
+                                                    "StartBands":  null,
+                                                    "CenterBands":  null,
+                                                    "EndBands":  null,
+                                                    "LastSeen":  "2026-11-14T00:00:00Z"
+                                                },
+                                                {
+                                                    "MonitorDeviceId":  "\\\\?\\DISPLAY#SAM7099#7\u00268b93ddd\u00260\u0026UID264#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+                                                    "MonitorHardwareId":  "SAM-7099-H4LT304023",
+                                                    "FallbackDisplayNumber":  2,
+                                                    "DisplayNameOverride":  null,
+                                                    "Enabled":  false,
+                                                    "Side":  null,
+                                                    "IsPrimary":  false,
+                                                    "IsCustomized":  false,
+                                                    "StartBands":  null,
+                                                    "CenterBands":  null,
+                                                    "EndBands":  null,
+                                                    "LastSeen":  "2026-11-14T00:00:00Z"
+                                                },
+                                                {
+                                                    "MonitorDeviceId":  "\\\\?\\DISPLAY#SAM0F52#7\u00268b93ddd\u00260\u0026UID268#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+                                                    "MonitorHardwareId":  "SAM-0F52-H4LRC00449",
+                                                    "FallbackDisplayNumber":  3,
+                                                    "DisplayNameOverride":  null,
+                                                    "Enabled":  true,
+                                                    "Side":  null,
+                                                    "IsPrimary":  true,
+                                                    "IsCustomized":  false,
+                                                    "StartBands":  null,
+                                                    "CenterBands":  null,
+                                                    "EndBands":  null,
+                                                    "LastSeen":  "2026-11-14T00:00:00Z"
+                                                }
+                                            ]
+                     },
+    "Theme":  "Default",
+    "ColorizationMode":  "None",
+    "CustomThemeColor":  {
+                             "A":  255,
+                             "R":  0,
+                             "G":  120,
+                             "B":  212
+                         },
+    "CustomThemeColorIntensity":  100,
+    "BackgroundImageTintIntensity":  0,
+    "BackgroundImageOpacity":  0,
+    "BackgroundImageBlurAmount":  0,
+    "BackgroundImageBrightness":  0,
+    "BackgroundImageFit":  "Fill",
+    "BackgroundImagePath":  null,
+    "BackdropStyle":  "Acrylic",
+    "BackdropOpacity":  0,
+    "GalleryFeedUrl":  null,
+    "ShowHwndFrame":  false
 }

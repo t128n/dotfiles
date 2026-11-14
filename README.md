@@ -91,13 +91,13 @@ mise run new rea-playground ~/Workspace/Scratch/rea-demo
 
 The `minimal` template prompts for a project name and slug. `rea-playground` creates an isolated reverse-engineering workspace with a project-local `mise.toml` and OpenCode REA MCP server; creation also runs `mise trust` and `mise install`. Each template is a Copier template: `templates/<name>/copier.yml` plus `templates/<name>/template/`. Files ending in `.jinja` are rendered; other files are copied verbatim. See `templates/AGENTS.md` when adding a template.
 
-## Cleanup
+## System configuration
 
-`mise run clean` runs the system-state items for the current OS and reports drift; add `--apply` to bring the machine to the declared state:
+`mise run system` runs the declarative system-state resources for the current OS and reports drift; add `--apply` to bring the machine to the declared state (and pass resource names to filter):
 
 ```sh
-mise run clean
-mise run clean --apply
+mise run system
+mise run system --apply
 ```
 
-Items live in `scripts/cleanup/items/<os>/`. Each is a small idempotent resource exposing `test`, `set`, and `unset`: removal items delete unwanted programs and configs, while setting items enforce a preference such as the taskbar layout. The scripts are deployed to `~/.local/share/t128n-dotfiles/scripts/cleanup`, and removal is permanent, so the dry run is the safety check. Settings change immediately; shell items restart Explorer. A project-level `clean` task shadows the global one.
+Resources live in `scripts/system/resources/{common,<os>}/`. Each TypeScript module exports a `defineResource` object with `test`, `set`, and `unset`: removal resources ensure unwanted programs and configs stay absent, while setting resources enforce preferences such as taskbar, theme, cursors, and wallpaper. Resources can register deduplicated `onPostInstall` hooks (e.g. restarting Explorer once at the end). The scripts are deployed to `~/.local/share/t128n-dotfiles/scripts/system`.

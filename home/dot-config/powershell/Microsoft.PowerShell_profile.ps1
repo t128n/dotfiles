@@ -84,9 +84,8 @@ if (Get-Command starship -ErrorAction SilentlyContinue) {
 # Set initial tab title on profile load
 Update-HostTitle
 
-# Clean Aliases (PowerShell alias overrides for native CLIs)
-if (Get-Alias curl -ErrorAction SilentlyContinue) { Remove-Item Alias:curl -Force }
-if (Get-Alias wget -ErrorAction SilentlyContinue) { Remove-Item Alias:wget -Force }
+# Clean Aliases (remove built-in aliases so coreutils and native CLIs win, keeping shell navigation/clear)
+Get-Alias | Where-Object { $_.Name -notin @('cd', 'clear', 'cls') } | ForEach-Object { Remove-Item "Alias:$($_.Name)" -Force -ErrorAction SilentlyContinue }
 
 # Per-machine overrides. Never commit this file.
 $localProfile = Join-Path $HOME '.config/powershell/profile.local.ps1'

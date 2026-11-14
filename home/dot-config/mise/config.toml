@@ -1,5 +1,6 @@
 [settings]
 npm.package_manager = "bun"
+minimum_release_age_excludes = ["github:t128n/reviewbot", "core:go"]
 
 # Tool data and caches live under the XDG-style directories below ~/.local and
 # ~/.cache, not at the home root. HOME is unset on Windows, so define it from
@@ -9,6 +10,11 @@ npm.package_manager = "bun"
 # GUI apps see the same paths as an activated shell.
 [env]
 HOME = '{{ get_env(name="USERPROFILE", default=get_env(name="HOME", default="")) }}'
+XDG_CONFIG_HOME = "{{env.HOME}}/.config"
+XDG_DATA_HOME = "{{env.HOME}}/.local/share"
+XDG_STATE_HOME = "{{env.HOME}}/.local/state"
+XDG_CACHE_HOME = "{{env.HOME}}/.cache"
+XDG_BIN_HOME = "{{env.HOME}}/.local/bin"
 GOPATH = "{{env.HOME}}/.local/share/go"
 GOMODCACHE = "{{env.HOME}}/.cache/go/mod"
 GOCACHE = "{{env.HOME}}/.cache/go/build"
@@ -17,6 +23,7 @@ CARGO_HOME = "{{env.HOME}}/.local/share/cargo"
 RUSTUP_HOME = "{{env.HOME}}/.local/share/rustup"
 BUN_INSTALL = "{{env.HOME}}/.local/share/bun"
 BUN_INSTALL_CACHE_DIR = "{{env.HOME}}/.cache/bun"
+CMDPAL_ENABLE_WIN_HOTKEY = "1"
 _.path = ["~/.local/share/cargo/bin"]
 
 [tools]
@@ -27,7 +34,7 @@ uv = "0.13"
 
 opencode = "latest"
 "github:anomalyco/hex" = "latest"
-"github:t128n/reviewbot" = "latest"
+"github:t128n/reviewbot" = { version = "latest", prerelease = true }
 
 fd = "latest"
 fzf = "latest"
@@ -64,7 +71,7 @@ arg "<directory>" help="Destination directory"
 run = 'copier copy --trust "$HOME/.local/share/t128n-dotfiles/templates/$usage_template" "$usage_directory"'
 run_windows = 'copier copy --trust "%USERPROFILE%\.local\share\t128n-dotfiles\templates\%usage_template%" "%usage_directory%"'
 
-[tasks.clean]
+[tasks.system]
 description = "Apply the declared system state (dry-run; pass --apply)"
-run = 'sh "$HOME/.local/share/t128n-dotfiles/scripts/cleanup/run.sh"'
-run_windows = 'pwsh -NoProfile -File "%USERPROFILE%\.local\share\t128n-dotfiles\scripts\cleanup\windows.ps1"'
+run = 'bun "$HOME/.local/share/t128n-dotfiles/scripts/system/run.ts"'
+run_windows = 'bun "%USERPROFILE%\.local\share\t128n-dotfiles\scripts\system\run.ts"'
