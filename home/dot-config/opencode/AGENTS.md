@@ -23,6 +23,15 @@ Use `type: summary` with one of `feat`, `fix`, `docs`, `chore`, `refactor`, or `
 - Be specific about the user-facing change. Generic messages like "improved agent experience" are not acceptable.
 - If there are merge conflicts, do not fix them. Notify me.
 
+## Tests
+
+Pick the technique by what the change touches, then use `engineering-principles` for how:
+
+- Observable behavior: BDD scenarios, one test per scenario.
+- Pure logic, parsers, serializers, transforms: property-based tests.
+- A request, response, event or schema across a service or team boundary: consumer-driven contract tests, consumer first.
+- Anything else: ordinary example tests. Say why when you skip a technique.
+
 ## Messages
 
 When I am the one communicating, load and follow the `write-message` skill before drafting or sending. That means a message to another person in my name: a comment or reply, an email, a chat message.
@@ -46,5 +55,6 @@ Prefer:
 - `agent-desktop` — Desktop interaction.
 - `webreel` — Capture browser interactions when visual evidence is useful.
 - `opensrc` — Inspect dependency source when documentation or types are insufficient.
+- `emulate` — Local fake GitHub, Google, Slack, Vercel, Apple and Microsoft APIs for tests and offline runs. Use it instead of the real service when the code under test calls one of them.
 
 Pick the cheapest tool that works: `webfetch` for raw fetches and non-HTML, `defuddle` for article-like pages, `browse` when the page needs JavaScript, a login, or interaction. If `webfetch` or `defuddle` returns an empty shell or a challenge, switch to `browse` once instead of retrying.
