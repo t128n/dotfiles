@@ -1,5 +1,5 @@
 ---
-description: Remove AI code slop
+description: "Remove AI code slop from the branch diff"
 ---
 
 Target repository:

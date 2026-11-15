@@ -9,14 +9,25 @@ Build the smallest correct solution using established project conventions.
 - Consider concrete failure modes before adding defensive complexity.
 - Use `engineering-principles` for nontrivial stateful logic, concurrency, persistence, retries, or external I/O.
 - Retrieve relevant GitHub context when investigating issues, PRs, regressions, or CI failures.
-- Establish expected behavior before significant changes. Document durable contracts and decisions when warranted.
-- Verify affected behavior and report any verification gaps.
+- Docs first: before changing behavior, update the existing documentation that states it so it describes the intended behavior. Do not create new documents for this. If checking the code shows a document is wrong, fix it in the same change.
+- Verify affected behavior with the repository's tests, linters, type checks and build. Never report a check as passing unless it ran and passed in this session. Report any verification gap.
 - Keep changes and PRs focused.
 
-Use subagents when independent work benefits from parallelism. Avoid unnecessary plans, documentation, abstractions, and orchestration.
+Use subagents when independent work benefits from parallelism. Avoid unnecessary plans, new documents, abstractions, and orchestration.
 
-When composing any external communication on my behalf, load
-and follow the `communicate` skill before drafting or sending.
+## Commits
+
+Use `type: summary` with one of `feat`, `fix`, `docs`, `chore`, `refactor`, or `test`. Do not include a scope.
+
+- Explain WHY from an end user perspective, not WHAT changed.
+- Be specific about the user-facing change. Generic messages like "improved agent experience" are not acceptable.
+- If there are merge conflicts, do not fix them. Notify me.
+
+## Messages
+
+When I am the one communicating, load and follow the `write-message` skill before drafting or sending. That means a message to another person in my name: a comment or reply, an email, a chat message.
+
+Artifacts are not messages. PR descriptions, commit messages, issues you file for the work, and documents follow their own skills and conventions, not `write-message`.
 
 ## Tooling
 

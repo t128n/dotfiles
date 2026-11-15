@@ -1,5 +1,5 @@
 ---
-description: Review documents against the writing style guide and glossary
+description: "Review documents against the writing style guide and glossary"
 ---
 
 Review the following documentation for consistency and correctness:
@@ -10,7 +10,7 @@ The text above names the files or folders to review. If it names none, ask which
 
 ## Before reviewing
 
-1. Read `docs/writing/style-guide.md` and `docs/writing/glossary.md`. They are the standard. If there is no style guide, say so, and review against the conventions of the best neighbouring documents, naming which ones you used.
+1. Read `docs/WRITING_STYLE.md` and `GLOSSARY.md`. They are the standard. If there is no style guide, say so, and review against the conventions of the best neighbouring documents, naming which ones you used.
 2. Identify each document's language (German or English) and its type (guideline, how-to, tutorial, reference, explanation or README). Apply the style guide's rules for that language only.
 3. If several documents are in scope, review them in parallel with one subagent per document or folder, each given the style guide, the glossary and this checklist. Merge the findings yourself.
 
@@ -20,7 +20,7 @@ The text above names the files or folders to review. If it names none, ask which
 - **Tone and address:** how the reader is addressed, formality, and the voice traits from the style guide. For German also the form of address, inclusive language, and the handling of English terms, including articles and compound spelling.
 - **Language:** one language per document. Flag mixed-language passages, and sentences that read as translated because they follow the other language's sentence structure. Code, identifiers and commands are expected to stay in their original language.
 - **Structure:** the sections the style guide defines for this type are present and in order. Flag documents that mix types, such as a how-to that turns into an explanation.
-- **Content:** claims that disagree with the code, the specs in `docs/specs/` or the ADRs in `docs/adrs/`. Commands and samples that look outdated; run them where that is safe and read-only. Broken links. Contradictions with neighbouring documents.
+- **Content:** claims that disagree with the code, the specs in the issue tracker or the ADRs in `docs/adr/`. Commands and samples that look outdated; run them where that is safe and read-only. Broken links. Contradictions with neighbouring documents.
 - **Clarity:** steps a reader could not follow, undefined terms, missing prerequisites, rules given without a reason.
 - **Language pairs:** if a German or English counterpart exists, compare headings, content and examples and report where the two have drifted apart, and which one looks newer.
 
@@ -29,7 +29,7 @@ The text above names the files or folders to review. If it names none, ask which
 These add a general plain-writing check on top of the project's style guide. Report their findings under a separate heading. The project's style guide and glossary win wherever they disagree with a baseline.
 
 - **English documents:** if the `writing-guidelines` skill from vercel-labs/agent-skills is installed, you may run it. Never apply it to German documents.
-- **German documents:** if the `schreibrichtlinien` skill is installed, load it and apply its rules. Never apply it to English documents.
+- **German documents:** if the `german-writing-guidelines` skill is installed, load it and apply its rules. Never apply it to English documents.
 
 ## Output
 

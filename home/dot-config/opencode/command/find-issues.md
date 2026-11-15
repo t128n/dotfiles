@@ -1,5 +1,5 @@
 ---
-description: "Find issue(s) on github"
+description: "Find GitHub issues that match a query"
 ---
 
 Target repository:
