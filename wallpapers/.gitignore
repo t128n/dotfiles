@@ -1,9 +1,8 @@
 # dependencies (bun install)
 node_modules
 
-# output
+# build scratch (committed wallpapers live in dist/)
 out
-dist
 *.tgz
 
 # code coverage
