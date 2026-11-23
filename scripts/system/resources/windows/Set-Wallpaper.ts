@@ -1,4 +1,4 @@
-// Desktop wallpaper: ~/.local/share/t128n-dotfiles/wallpapers/Wallpaper.png
+// Desktop wallpaper: ~/.local/share/t128n-dotfiles/wallpapers/desktop.png
 // with Fill style (10), applied immediately via SPI_SETDESKWALLPAPER.
 import { existsSync, rmSync, statSync } from "node:fs";
 import { join } from "node:path";
@@ -26,7 +26,7 @@ function getTranscodedPath(): string {
 
 export default defineResource({
   async test(ctx) {
-    const wallpaperPath = join(ctx.home, ".local", "share", "t128n-dotfiles", "wallpapers", "Wallpaper.png");
+    const wallpaperPath = join(ctx.home, ".local", "share", "t128n-dotfiles", "wallpapers", "desktop.png");
     if (!existsSync(wallpaperPath)) return false;
     if (!(await testRegistryTargets(getTargets(wallpaperPath)))) return false;
 
@@ -38,7 +38,7 @@ export default defineResource({
   },
 
   async set(ctx) {
-    const wallpaperPath = join(ctx.home, ".local", "share", "t128n-dotfiles", "wallpapers", "Wallpaper.png");
+    const wallpaperPath = join(ctx.home, ".local", "share", "t128n-dotfiles", "wallpapers", "desktop.png");
     if (!existsSync(wallpaperPath)) {
       throw new Error(`wallpaper file missing: ${wallpaperPath}; run mise dot apply first`);
     }

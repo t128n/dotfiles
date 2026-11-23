@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2208 4800" width="2208" height="4800" style="overflow:hidden;display:block">
+  <defs>
+    <!-- 48x48 atomic grid (2 cols x 1 row) -->
+    <pattern id="cellGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#282828" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="2208" height="4800" fill="#1E1E1E"/>
+  <rect width="2208" height="4800" fill="url(#cellGrid)"/>
+
+  <g id="brackets">
+    <rect x="768" y="2208" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="912" y="2208" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1200" y="2208" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="1344" y="2208" width="96" height="48" fill="#6a6a6a"/>
+    <rect x="768" y="2256" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="912" y="2256" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="2256" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1392" y="2256" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="768" y="2304" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="912" y="2304" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="2304" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1392" y="2304" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="768" y="2352" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="912" y="2352" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1248" y="2352" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="1392" y="2352" width="48" height="48" fill="#6a6a6a"/>
+    <rect x="768" y="2400" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="912" y="2400" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="2400" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1392" y="2400" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="768" y="2448" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="912" y="2448" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="2448" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1392" y="2448" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="768" y="2496" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="912" y="2496" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1248" y="2496" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="1392" y="2496" width="48" height="48" fill="#4c4c4c"/>
+    <rect x="768" y="2544" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="912" y="2544" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="1200" y="2544" width="96" height="48" fill="#4c4c4c"/>
+    <rect x="1344" y="2544" width="96" height="48" fill="#4c4c4c"/>
+  </g>
+</svg>

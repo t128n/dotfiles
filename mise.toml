@@ -22,7 +22,7 @@ starship = "latest"
 "~/.gitconfig-identity" = { source = "home/dot-gitconfig-identity", mode = "copy", create_if_missing = true }
 "~/.local/share/t128n-dotfiles/cursors" = { source = "cursors", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/templates" = { source = "templates", mode = "symlink" }
-"~/.local/share/t128n-dotfiles/wallpapers" = { source = "wallpapers", mode = "symlink" }
+"~/.local/share/t128n-dotfiles/wallpapers" = { source = "wallpapers/dist", mode = "symlink" }
 "~/.local/share/t128n-dotfiles/scripts/system" = { source = "scripts/system", mode = "symlink" }
 "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" = { source = "home/dot-config/powershell/Microsoft.PowerShell_profile.ps1", mode = "symlink" }
 "~/Documents/ShareX/HotkeysConfig.json" = { source = "home/dot-config/sharex/HotkeysConfig.json", mode = "symlink" }
@@ -86,6 +86,10 @@ run = "bun scripts/apps/apply.ts"
 [tasks."apps:check"]
 description = "Report declared apps that are not installed"
 run = "bun scripts/apps/apply.ts --check"
+
+[tasks.wallpapers]
+description = "Regenerate wallpaper SVG and PNG assets"
+run = "cd wallpapers && bun run generate"
 
 [tasks."gitconfig:identity"]
 description = "Open ~/.gitconfig-identity in your editor"
